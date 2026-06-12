@@ -1,9 +1,10 @@
 <svg width="520" height="160" viewBox="0 0 520 160" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="520" height="160" rx="28" fill="transparent"/>
-  <rect x="28" y="26" width="108" height="108" rx="28" fill="#0F2747"/>
+  <rect x="28" y="26" width="108" height="108" rx="28" fill="#10233F"/>
   <path d="M58 105V56h33.5c20.5 0 33.5 11.1 33.5 28.1 0 17.5-13.1 28.8-33.5 28.8H75.4V105H58Zm17.4-31.6h15.2c10.2 0 16.1-4 16.1-11.5 0-7.4-5.9-11.4-16.1-11.4H75.4v22.9Z" fill="#FFFFFF"/>
-  <path d="M75.4 121V95.4h21.2c21 0 36.2-13.7 36.2-33.2 0-7.8-2.5-14.7-7-20.2 15.8 5.2 27 19.6 27 36.8 0 22.2-18.4 40.2-41.1 40.2H75.4Z" fill="#39A9DC" fill-opacity="0.9"/>
-  <text x="162" y="74" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="800" fill="#0F2747">Professional</text>
-  <text x="162" y="112" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="800" fill="#0F2747">Project Dashboard</text>
-  <rect x="162" y="124" width="208" height="4" rx="2" fill="#39A9DC"/>
+  <path d="M75.4 121V95.4h21.2c21 0 36.2-13.7 36.2-33.2 0-7.8-2.5-14.7-7-20.2 15.8 5.2 27 19.6 27 36.8 0 22.2-18.4 40.2-41.1 40.2H75.4Z" fill="#14A39A"/>
+  <circle cx="137" cy="42" r="8" fill="#E1B447"/>
+  <text x="162" y="74" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="800" fill="#10233F">Professional</text>
+  <text x="162" y="112" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="800" fill="#10233F">Project Dashboard</text>
+  <rect x="162" y="124" width="208" height="4" rx="2" fill="#14A39A"/>
 </svg>
