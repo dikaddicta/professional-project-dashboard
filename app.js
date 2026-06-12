@@ -118,21 +118,21 @@ function projectIsArchived(project){ return normalizeProjectStatus(project?.proj
 function projectIsExplicitlyCompleted(project){ return normalizeProjectStatus(project?.projectStatus, project?.isActive !== false) === 'completed'; }
 
 function isHexColor(value){ return /^#[0-9a-f]{6}$/i.test(String(value || '').trim()); }
-const DEMO_CLIENT_LOGO_MAP = {
-  'asteria bank': 'asteria-bank.svg',
-  'merapi retail group': 'merapi-retail-group.svg',
-  'sagara logistics': 'sagara-logistics.svg',
-  'vantara insurance': 'vantara-insurance.svg',
-  'arunika healthcare': 'arunika-healthcare.svg',
-  'zenith finance': 'zenith-finance.svg',
-  'borealis energy': 'borealis-energy.svg',
-  'lumina telco': 'lumina-telco.svg',
-  'kaldera manufacturing': 'kaldera-manufacturing.svg',
-  'nova public services': 'nova-public-services.svg'
-};
 function getDemoClientLogoUrl(value){
+  const logoMap = {
+    'asteria bank': 'asteria-bank.svg',
+    'merapi retail group': 'merapi-retail-group.svg',
+    'sagara logistics': 'sagara-logistics.svg',
+    'vantara insurance': 'vantara-insurance.svg',
+    'arunika healthcare': 'arunika-healthcare.svg',
+    'zenith finance': 'zenith-finance.svg',
+    'borealis energy': 'borealis-energy.svg',
+    'lumina telco': 'lumina-telco.svg',
+    'kaldera manufacturing': 'kaldera-manufacturing.svg',
+    'nova public services': 'nova-public-services.svg'
+  };
   const key = normalize(value).replace(/\s+/g, ' ');
-  const file = DEMO_CLIENT_LOGO_MAP[key];
+  const file = logoMap[key];
   return file ? `assets/client-logos/${file}` : '';
 }
 function defaultProjectBranding(project = {}){
