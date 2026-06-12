@@ -1138,3 +1138,219 @@ body *[style*="rgb(77, 132, 209)"]{
   color:#4f6959 !important;
   box-shadow:none !important;
 }
+
+
+
+/* === DEMO REV03.6 — schedule palette refinement and form polish === */
+
+/* Schedule legend: exact icon classes from app.js */
+body .schedule-mode-legend{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+body .schedule-mode-legend span{
+  background:#ffffff !important;
+  border:1px solid #d8ddd4 !important;
+  color:#2f3c34 !important;
+  border-radius:999px !important;
+  padding:7px 12px !important;
+  box-shadow:none !important;
+}
+body .schedule-mode-legend i{
+  width:10px !important;
+  height:10px !important;
+  border-radius:999px !important;
+  display:inline-block !important;
+  margin-right:6px !important;
+  box-shadow:0 0 0 4px rgba(111,139,120,.12) !important;
+}
+body .schedule-mode-legend i.online{
+  background:#6f8b78 !important;
+  box-shadow:0 0 0 4px rgba(111,139,120,.14) !important;
+}
+body .schedule-mode-legend i.onsite{
+  background:#a9772b !important;
+  box-shadow:0 0 0 4px rgba(169,119,43,.14) !important;
+}
+
+/* Exact schedule event classes from app.js */
+body .schedule-event-chip.schedule-mode-online,
+body .schedule-event-chip.compact.schedule-mode-online,
+body .schedule-card.schedule-mode-online,
+body .agenda-event-row.schedule-mode-online{
+  background:#e7f0ea !important;
+  border:1px solid #b8caba !important;
+  color:#4f6959 !important;
+  box-shadow:none !important;
+}
+body .schedule-event-chip.schedule-mode-onsite,
+body .schedule-event-chip.compact.schedule-mode-onsite,
+body .schedule-card.schedule-mode-onsite,
+body .agenda-event-row.schedule-mode-onsite{
+  background:#f4e7d2 !important;
+  border:1px solid #d7b67a !important;
+  color:#8a5f20 !important;
+  box-shadow:none !important;
+}
+body .schedule-event-chip.schedule-mode-online span,
+body .schedule-event-chip.schedule-mode-online strong,
+body .schedule-event-chip.schedule-mode-online small,
+body .schedule-event-chip.schedule-mode-onsite span,
+body .schedule-event-chip.schedule-mode-onsite strong,
+body .schedule-event-chip.schedule-mode-onsite small{
+  color:inherit !important;
+}
+body .schedule-card.schedule-mode-online .badge,
+body .schedule-card .schedule-mode-online,
+body .mode-pill.schedule-mode-online{
+  background:#e7f0ea !important;
+  border-color:#b8caba !important;
+  color:#4f6959 !important;
+}
+body .schedule-card.schedule-mode-onsite .badge,
+body .schedule-card .schedule-mode-onsite,
+body .mode-pill.schedule-mode-onsite{
+  background:#f4e7d2 !important;
+  border-color:#d7b67a !important;
+  color:#8a5f20 !important;
+}
+
+/* Calendar selected day and event chip contrast */
+body .schedule-day.selected{
+  background:#f7faf6 !important;
+  border-color:#7f9a89 !important;
+  outline:2px solid rgba(111,139,120,.35) !important;
+  outline-offset:-2px !important;
+}
+body .schedule-day.selected .schedule-day-number,
+body .schedule-day.today .schedule-day-number{
+  background:#6f8b78 !important;
+  color:#fff !important;
+}
+body .schedule-day-events em{
+  color:#6d7a70 !important;
+  background:#eef2ee !important;
+  border-color:#d4ddd5 !important;
+}
+
+/* Right-side schedule cards */
+body .schedule-card,
+body .schedule-side .schedule-card,
+body .schedule-detail-card{
+  background:#ffffff !important;
+  border-color:#d8ddd4 !important;
+  color:#243142 !important;
+}
+body .schedule-card.is-editing,
+body .schedule-card.active,
+body .schedule-card:has(button[disabled]){
+  background:#f8faf7 !important;
+  border-color:#7f9a89 !important;
+  box-shadow:0 10px 24px rgba(111,139,120,.10) !important;
+}
+body .schedule-card h3,
+body .schedule-card strong,
+body .schedule-card p,
+body .schedule-card small{
+  color:#243142 !important;
+}
+body .schedule-card p,
+body .schedule-card small{
+  color:#667168 !important;
+}
+body .schedule-card .meeting-box,
+body .schedule-card .schedule-link-box,
+body .schedule-card .meeting-link-box{
+  background:#fcfcfa !important;
+  border-color:#d8ddd4 !important;
+}
+body .schedule-card .meeting-box strong,
+body .schedule-card .schedule-link-box strong,
+body .schedule-card .meeting-link-box strong{
+  color:#6f8b78 !important;
+}
+body .schedule-card button,
+body .schedule-detail-card button{
+  background:#ffffff !important;
+  border:1px solid #cfd8d0 !important;
+  color:#2f3c34 !important;
+}
+body .schedule-card button:hover,
+body .schedule-detail-card button:hover{
+  background:#f4f7f3 !important;
+  border-color:#aebbad !important;
+}
+
+/* Schedule form layout polish */
+body .schedule-form{
+  padding:18px !important;
+  overflow:hidden !important;
+}
+body .schedule-form-head{
+  display:grid !important;
+  grid-template-columns:1fr auto !important;
+  align-items:start !important;
+  gap:14px !important;
+  margin-bottom:16px !important;
+}
+body .schedule-form-head h3{
+  margin:0 0 4px !important;
+  color:#243142 !important;
+}
+body .schedule-form-head p{
+  margin:0 !important;
+  color:#667168 !important;
+  line-height:1.45 !important;
+}
+body .schedule-form-head .ghost-btn,
+body .schedule-form-head button{
+  position:static !important;
+  min-width:104px !important;
+  padding:12px 16px !important;
+  border-radius:16px !important;
+  white-space:normal !important;
+  line-height:1.25 !important;
+  background:#ffffff !important;
+  border:1px solid #cfd8d0 !important;
+  color:#2f3c34 !important;
+}
+body .schedule-form label{
+  display:grid !important;
+  gap:7px !important;
+  margin-bottom:12px !important;
+  color:#243142 !important;
+  font-weight:800 !important;
+}
+body .schedule-form input,
+body .schedule-form select,
+body .schedule-form textarea{
+  width:100% !important;
+  min-height:46px !important;
+  border-radius:16px !important;
+  border:1px solid #d8ddd4 !important;
+  background:#fff !important;
+  color:#243142 !important;
+  padding:10px 14px !important;
+  box-sizing:border-box !important;
+}
+body .schedule-form textarea{
+  min-height:92px !important;
+  resize:vertical !important;
+}
+body .schedule-form .field-hint{
+  color:#6d7a70 !important;
+  font-weight:700 !important;
+  line-height:1.35 !important;
+}
+body .schedule-form .form-grid.two{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px !important;
+}
+@media(max-width:720px){
+  body .schedule-form-head{grid-template-columns:1fr !important;}
+  body .schedule-form-head .ghost-btn,
+  body .schedule-form-head button{width:100% !important;}
+  body .schedule-form .form-grid.two{grid-template-columns:1fr !important;}
+}

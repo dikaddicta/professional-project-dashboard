@@ -41,14 +41,18 @@
   }
 
   function isDataImage(value){
-    return /^data:image\//i.test(String(value || ''));
+    return /^data:image\/(png|jpe?g);base64,/i.test(String(value || ''));
+  }
+
+  function isSvgImage(value){
+    return /\.svg(?:\?|#|$)/i.test(String(value || '')) || /^data:image\/svg\+xml/i.test(String(value || ''));
   }
 
   async function resolveReportLogos(payload){
     const branding = normalizeBranding(payload);
     const cywaLogo = branding.showCywaLogo !== false ? await imageToDataUrl('assets/professional-dashboard-logo.png') : null;
     let clientLogo = null;
-    if(branding.showClientLogo !== false && branding.clientLogoUrl){
+    if(branding.showClientLogo !== false && branding.clientLogoUrl && !isSvgImage(branding.clientLogoUrl)){
       clientLogo = isDataImage(branding.clientLogoUrl) ? branding.clientLogoUrl : await imageToDataUrl(branding.clientLogoUrl);
     }
     return { branding, cywaLogo, clientLogo };
@@ -215,12 +219,18 @@
 
   async function imageToDataUrl(url){
     try{
+      if(!url || isSvgImage(url)) return null;
       const res = await fetch(url);
       if(!res.ok) return null;
       const blob = await res.blob();
+      const type = String(blob.type || '').toLowerCase();
+      if(type && !['image/png','image/jpeg','image/jpg'].includes(type)) return null;
       return await new Promise((resolve) => {
         const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
+        reader.onload = () => {
+          const result = String(reader.result || '');
+          resolve(isDataImage(result) ? result : null);
+        };
         reader.onerror = () => resolve(null);
         reader.readAsDataURL(blob);
       });
