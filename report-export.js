@@ -1,18 +1,19 @@
 (function(){
   const BRAND = {
-    navy: '#0f2747',
-    ink: '#10233f',
-    blue: '#2b6cb0',
-    blue2: '#39a9dc',
-    slate: '#64748b',
-    muted: '#8aa0bd',
-    light: '#eef6ff',
-    soft: '#f8fbff',
-    line: '#d7e5f5',
-    green: '#22a06b',
-    amber: '#c58a00',
-    red: '#d64550',
-    gray: '#94a3b8',
+    navy: '#243142',
+    ink: '#2f3c34',
+    blue: '#6f8b78',
+    blue2: '#87a08f',
+    slate: '#6d7a70',
+    muted: '#7b847c',
+    light: '#eef2ee',
+    soft: '#fbfbf8',
+    line: '#d8ddd4',
+    green: '#6f8b78',
+    amber: '#a9772b',
+    red: '#b85c38',
+    gray: '#9aa39a',
+    bronze: '#b8872f',
     white: '#ffffff'
   };
 
@@ -1016,10 +1017,46 @@
     link.href = url;
     link.download = filename;
     link.rel = 'noopener';
+    link.style.display = 'none';
     document.body.appendChild(link);
-    link.click();
+    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
     link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 15000);
+  }
+
+  function savePdfDocument(docDefinition, filename){
+    return new Promise((resolve, reject) => {
+      try{
+        const pdf = window.pdfMake.createPdf(docDefinition);
+        let settled = false;
+        const done = () => {
+          if(settled) return;
+          settled = true;
+          resolve(filename);
+        };
+
+        if(typeof pdf.download === 'function'){
+          try{
+            pdf.download(filename, done);
+            setTimeout(done, 1800);
+            return;
+          }catch(downloadError){
+            console.warn('[PDF download fallback]', downloadError);
+          }
+        }
+
+        pdf.getBlob((blob) => {
+          try{
+            downloadBlob(blob, filename);
+            done();
+          }catch(err){
+            reject(err);
+          }
+        });
+      }catch(err){
+        reject(err);
+      }
+    });
   }
 
 
@@ -1264,21 +1301,7 @@
     const brand = normalizeBranding(payload);
     const filename = sanitizeFileName(`${brand.preparedFor || project.code || 'Client'}_Executive_Summary_${brand.reportLanguage.toUpperCase()}_${project.name || ''}_${date}`) + '.pdf';
 
-    return new Promise((resolve, reject) => {
-      try{
-        const pdf = window.pdfMake.createPdf(docDefinition);
-        pdf.getBlob((blob) => {
-          try{
-            downloadBlob(blob, filename);
-            resolve(filename);
-          }catch(err){
-            reject(err);
-          }
-        });
-      }catch(err){
-        reject(err);
-      }
-    });
+    return savePdfDocument(docDefinition, filename);
   }
 
 
@@ -1292,21 +1315,7 @@
     const brand = normalizeBranding(payload);
     const filename = sanitizeFileName(`${brand.preparedFor || project.code || 'Client'}_Full_Report_Pack_${brand.reportLanguage.toUpperCase()}_${project.name || ''}_${date}`) + '.pdf';
 
-    return new Promise((resolve, reject) => {
-      try{
-        const pdf = window.pdfMake.createPdf(docDefinition);
-        pdf.getBlob((blob) => {
-          try{
-            downloadBlob(blob, filename);
-            resolve(filename);
-          }catch(err){
-            reject(err);
-          }
-        });
-      }catch(err){
-        reject(err);
-      }
-    });
+    return savePdfDocument(docDefinition, filename);
   }
 
 
@@ -1319,21 +1328,7 @@
     const brand = normalizeBranding(payload);
     const filename = sanitizeFileName(`${brand.preparedFor || project.code || 'Client'}_Timeline_Project_${brand.reportLanguage.toUpperCase()}_${project.name || ''}_${date}`) + '.pdf';
 
-    return new Promise((resolve, reject) => {
-      try{
-        const pdf = window.pdfMake.createPdf(docDefinition);
-        pdf.getBlob((blob) => {
-          try{
-            downloadBlob(blob, filename);
-            resolve(filename);
-          }catch(err){
-            reject(err);
-          }
-        });
-      }catch(err){
-        reject(err);
-      }
-    });
+    return savePdfDocument(docDefinition, filename);
   }
 
 

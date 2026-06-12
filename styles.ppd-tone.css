@@ -635,3 +635,315 @@ input:focus,select:focus,textarea:focus{
   color:var(--ppd-sage) !important;
   border-color:rgba(111,139,120,.35) !important;
 }
+
+
+
+/* === DEMO REV03.4 — full visual consistency cleanup === */
+
+/* Home KPI cards */
+body .home-stat-card,
+body .home-stat-card.average,
+body .home-stat-card.running,
+body .home-stat-card.completed,
+body .home-stat-card.schedule,
+body .home-stat-card.notification{
+  background:#ffffff !important;
+  border:1px solid #d8ddd4 !important;
+  color:#243142 !important;
+  box-shadow:0 16px 34px rgba(38,48,41,.07) !important;
+}
+body .home-stat-card span,
+body .home-stat-card.average span,
+body .home-stat-card h3{
+  color:#6d7a70 !important;
+  opacity:1 !important;
+}
+body .home-stat-card strong,
+body .home-stat-card.average strong{
+  display:block !important;
+  color:#2f3c34 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+body .home-stat-card small,
+body .home-stat-card.average small{
+  color:#5f695f !important;
+  opacity:1 !important;
+}
+body .home-stat-card.notification strong,
+body .notification strong{
+  color:#9b4f31 !important;
+}
+
+/* Role/session badges for all users */
+body .role-badge,
+body .role-badge.edit,
+body .session-card .role-badge,
+body .session-card .role-badge.edit{
+  background:#f7ece8 !important;
+  border:1px solid #d8b5a9 !important;
+  color:#8b5e4a !important;
+}
+body .client-portal-main .role-badge,
+body .role-badge:not(.edit){
+  background:#eef2ee !important;
+  border-color:#c9d4cb !important;
+  color:#4d5a52 !important;
+}
+
+/* Sidebar/menu hover and active state */
+body .command-nav-item,
+body .sidebar button,
+body .session-card button{
+  color:#243142 !important;
+}
+body .command-nav-item:hover,
+body .command-nav-item.active,
+body .sidebar button:hover,
+body .agenda-project>button:hover,
+body .home-project-row:hover{
+  background:#f4f7f3 !important;
+  border-color:#aebbad !important;
+  color:#2f3c34 !important;
+  box-shadow:0 10px 22px rgba(38,48,41,.08) !important;
+}
+body .command-nav-item:hover *,
+body .command-nav-item.active *,
+body .sidebar button:hover *,
+body .home-project-row:hover *{
+  color:inherit !important;
+}
+body .command-nav-item small,
+body .command-nav-item:hover small,
+body .command-nav-item.active small{
+  color:#667168 !important;
+}
+
+/* Progress bars everywhere */
+body .home-project-progress,
+body .home-project-progress b,
+body .home-project-progress i{
+  color:#2f3c34 !important;
+}
+body .home-project-progress{
+  background:#e7ece7 !important;
+  border-radius:999px !important;
+  overflow:hidden !important;
+}
+body .home-project-progress b,
+body .progress-mini b,
+body .progress-fill,
+body .progress-bar,
+body .hero-progress-track b,
+body .linear-progress > span{
+  background:linear-gradient(90deg,#6f8b78 0%,#87a08f 100%) !important;
+}
+body .home-project-progress i{
+  color:#243142 !important;
+  text-shadow:none !important;
+  mix-blend-mode:normal !important;
+  font-weight:900 !important;
+}
+
+/* Schedule: remove blue completely */
+body .schedule-calendar,
+body .schedule-side>section,
+body .schedule-form{
+  border-color:#d8ddd4 !important;
+  background:#fff !important;
+}
+body .schedule-weekdays{
+  background:#f4f7f3 !important;
+  border-bottom-color:#d8ddd4 !important;
+}
+body .schedule-weekdays span{
+  color:#2f3c34 !important;
+}
+body .schedule-day{
+  background:#fff !important;
+  border-color:#d8ddd4 !important;
+}
+body .schedule-day.selected,
+body .schedule-day.is-selected,
+body .schedule-day.today,
+body .calendar-day.selected{
+  background:#f8faf7 !important;
+  border-color:#9eaaa1 !important;
+  box-shadow:inset 0 0 0 1px rgba(111,139,120,.18) !important;
+}
+body .schedule-date.today,
+body .schedule-date.selected,
+body .schedule-day.selected .schedule-date{
+  background:#6f8b78 !important;
+  color:#fff !important;
+  border-color:#6f8b78 !important;
+}
+body .mode-pill,
+body .schedule-event,
+body .schedule-card .badge,
+body .schedule-event.online,
+body .mode-pill.online,
+body .schedule-mode.online,
+body .badge-online{
+  background:#e7f0ea !important;
+  border:1px solid #b8caba !important;
+  color:#4f6959 !important;
+}
+body .schedule-event.onsite,
+body .mode-pill.onsite,
+body .schedule-mode.onsite,
+body .badge-onsite{
+  background:#f4e7d2 !important;
+  border-color:#d7b67a !important;
+  color:#8a5f20 !important;
+}
+body .schedule-event *{
+  color:inherit !important;
+}
+body .schedule-side .primary-btn,
+body .schedule-side .ghost-btn,
+body .schedule-detail-card button,
+body .schedule-card button,
+body .agenda-event-row{
+  border-color:#cfd8d0 !important;
+  color:#2f3c34 !important;
+}
+body .schedule-link-box,
+body .meeting-link-box,
+body .schedule-card .link-box{
+  background:#fcfcfa !important;
+  border-color:#d8ddd4 !important;
+}
+body .schedule-link-box strong,
+body .meeting-link-box strong{
+  color:#6f8b78 !important;
+}
+
+/* Report export cards and PDF badge */
+body .report-export-option,
+body .report-export-card,
+body .timeline-pack,
+body .executive-summary,
+body .full-pack{
+  background:#fff !important;
+  border-color:#d8ddd4 !important;
+  color:#243142 !important;
+}
+body .report-export-option:hover,
+body .report-export-card:hover{
+  background:#f8faf7 !important;
+  border-color:#aebbad !important;
+  color:#2f3c34 !important;
+}
+body .report-export-option em,
+body .report-export-card em,
+body .report-format-badge,
+body .timeline-pack em,
+body .full-pack em,
+body .executive-summary em{
+  background:#b8872f !important;
+  color:#ffffff !important;
+  border-color:#9d7327 !important;
+  box-shadow:none !important;
+}
+body .report-export-option strong,
+body .report-export-option small{
+  color:#243142 !important;
+}
+body .report-export-option:hover strong,
+body .report-export-option:hover small{
+  color:#2f3c34 !important;
+}
+
+/* Timeline / Gantt number boxes and bars */
+body .gantt-left,
+body .gantt-right,
+body .gantt-task-head,
+body .gantt-row-canvas{
+  background:#fff !important;
+  border-color:#d8ddd4 !important;
+}
+body .sticky-head,
+body .gantt-left.sticky-head,
+body .gantt-right.sticky-head,
+body .gantt-months,
+body .gantt-days{
+  background:#f4f7f3 !important;
+  color:#2f3c34 !important;
+}
+body .month-block,
+body .day-block{
+  background:#f4f7f3 !important;
+  border-color:#d8ddd4 !important;
+  color:#5f695f !important;
+}
+body .gantt-row-no,
+body .gantt-row-no.head{
+  background:#eef2ee !important;
+  border:1px solid #d4ddd5 !important;
+  color:#3a4540 !important;
+  box-shadow:none !important;
+}
+body .gantt-task-label span:last-child,
+body .gantt-task-head em{
+  color:#243142 !important;
+}
+body .gantt-gridline span{
+  border-right-color:#e2e7df !important;
+}
+body .gantt-bar-shell,
+body .gantt-bar-shell.assessment{
+  background:linear-gradient(90deg,#7f9a89 0%,#6f8b78 100%) !important;
+  border-color:#b8caba !important;
+  box-shadow:0 8px 18px rgba(111,139,120,.16) !important;
+}
+body .gantt-bar-shell.reporting{
+  background:linear-gradient(90deg,#c59a47 0%,#a9772b 100%) !important;
+  border-color:#d6b777 !important;
+  box-shadow:0 8px 18px rgba(169,119,43,.16) !important;
+}
+body .gantt-bar-shell.hold,
+body .gantt-bar-shell.hold-reporting{
+  background:linear-gradient(90deg,#d9c08b 0%,#b89b61 100%) !important;
+  border-color:#d9c08b !important;
+  box-shadow:0 8px 18px rgba(184,155,97,.14) !important;
+}
+body .legend-item i.assessment{background:#6f8b78 !important;}
+body .legend-item i.reporting{background:#a9772b !important;}
+body .legend-item i.hold,
+body .legend-item i.hold-reporting{background:#b89b61 !important;}
+
+/* Legacy blue variable cleanup */
+body .sidebar-health,
+body .health-badge,
+body .badge,
+body .pill,
+body .status-pill{
+  border-color:#d8ddd4 !important;
+}
+body .sidebar-health.s-progress,
+body .health-badge.s-progress{
+  color:#a9772b !important;
+  background:#f4e7d2 !important;
+}
+body .sidebar-health.s-completed,
+body .health-badge.s-completed{
+  color:#4f6959 !important;
+  background:#e7f0ea !important;
+}
+
+/* Strong final hard-blue overrides */
+body *[style*="43,108,176"],
+body *[style*="31,95,159"],
+body *[style*="21,92,159"],
+body *[style*="#2b6cb0"],
+body *[style*="#1f73b8"],
+body *[style*="#155c9f"],
+body *[style*="#21a4d6"],
+body *[style*="#39a9dc"],
+body *[style*="#4d84d1"],
+body *[style*="#1d5f9f"]{
+  border-color:#b8caba !important;
+  color:#4f6959 !important;
+  background:#e7f0ea !important;
+}
