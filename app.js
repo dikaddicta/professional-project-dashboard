@@ -37,7 +37,7 @@ const REPORT_LANGUAGE_OPTIONS = [
   { value: 'id', label: 'Bahasa Indonesia', short: 'ID' },
   { value: 'en', label: 'English', short: 'EN' }
 ];
-const BRANDING_ACCENT_PRESETS = ['#566955', '#b7842c', '#2f5f5b', '#6f6758', '#8a5a38', '#334155'];
+const BRANDING_ACCENT_PRESETS = ['#0f2747', '#1f5f9f', '#2563eb', '#0f766e', '#7c3aed', '#334155'];
 const BRANDING_LOGO_BUCKET = 'project-brand-assets';
 const BRANDING_LOGO_MAX_BYTES = 2 * 1024 * 1024;
 const BRANDING_LOGO_ALLOWED_TYPES = new Set(['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/svg+xml']);
@@ -118,7 +118,6 @@ function projectIsArchived(project){ return normalizeProjectStatus(project?.proj
 function projectIsExplicitlyCompleted(project){ return normalizeProjectStatus(project?.projectStatus, project?.isActive !== false) === 'completed'; }
 
 function isHexColor(value){ return /^#[0-9a-f]{6}$/i.test(String(value || '').trim()); }
-
 const DEMO_CLIENT_LOGO_MAP = {
   'asteria bank': 'asteria-bank.svg',
   'merapi retail group': 'merapi-retail-group.svg',
@@ -131,40 +130,21 @@ const DEMO_CLIENT_LOGO_MAP = {
   'kaldera manufacturing': 'kaldera-manufacturing.svg',
   'nova public services': 'nova-public-services.svg'
 };
-const DEMO_CLIENT_ACCENT_MAP = {
-  'asteria bank': '#566955',
-  'merapi retail group': '#7a6a38',
-  'sagara logistics': '#2f5f5b',
-  'vantara insurance': '#566955',
-  'arunika healthcare': '#68785f',
-  'zenith finance': '#b7842c',
-  'borealis energy': '#54735f',
-  'lumina telco': '#5e6572',
-  'kaldera manufacturing': '#8a5a38',
-  'nova public services': '#566955'
-};
-function getDemoClientKey(value){
-  return normalize(value).replace(/\s+/g, ' ');
-}
 function getDemoClientLogoUrl(value){
-  const key = getDemoClientKey(value);
+  const key = normalize(value).replace(/\s+/g, ' ');
   const file = DEMO_CLIENT_LOGO_MAP[key];
   return file ? `assets/client-logos/${file}` : '';
 }
-function getDemoClientAccent(value){
-  return DEMO_CLIENT_ACCENT_MAP[getDemoClientKey(value)] || '#566955';
-}
-
 function defaultProjectBranding(project = {}){
   const client = project.clientName || project.code || 'Client';
   const demoLogoUrl = getDemoClientLogoUrl(client);
   return {
     clientLogoUrl: demoLogoUrl,
-    brandAccentColor: getDemoClientAccent(client),
+    brandAccentColor: '#6f8b78',
     preparedFor: client,
     preparedBy: 'Professional Project Team',
-    confidentialityLabel: `Confidential — Demo Data`,
-    reportFooterText: 'This report is intended solely for authorized stakeholders.',
+    confidentialityLabel: 'Confidential — Demo Data',
+    reportFooterText: 'This report is prepared for portfolio demonstration purposes.',
     reportLanguage: 'id',
     showClientLogo: true,
     showCywaLogo: true
