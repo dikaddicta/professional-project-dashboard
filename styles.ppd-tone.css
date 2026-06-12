@@ -947,3 +947,194 @@ body *[style*="#1d5f9f"]{
   color:#4f6959 !important;
   background:#e7f0ea !important;
 }
+
+
+
+/* === DEMO REV03.5 — blue purge selectors and schedule hard fix === */
+
+/* Notification filter chips */
+body .notification-panel .notification-filters,
+body .notification-filters{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:10px !important;
+}
+body .notification-panel .notification-filters button,
+body .notification-filters button{
+  background:#ffffff !important;
+  border:1px solid #d8ddd4 !important;
+  color:#2f3c34 !important;
+  box-shadow:none !important;
+}
+body .notification-panel .notification-filters button.active,
+body .notification-filters button.active{
+  background:#6f8b78 !important;
+  border-color:#6f8b78 !important;
+  color:#ffffff !important;
+}
+body .notification-panel .notification-filters button:hover,
+body .notification-filters button:hover{
+  background:#f4f7f3 !important;
+  border-color:#aebbad !important;
+  color:#2f3c34 !important;
+}
+
+/* Ringkasan Timeline number badges */
+body .timeline .tl-no,
+body .timeline-grid .tl-no,
+body .numbered-timeline-grid .tl-no,
+body .numbered-tl-row .tl-no,
+body .tl-row .tl-no{
+  background:#eef2ee !important;
+  border:1px solid #d4ddd5 !important;
+  color:#3a4540 !important;
+  box-shadow:none !important;
+}
+body .timeline .tl-track,
+body .timeline .progress-track{
+  background:#e7ece7 !important;
+  border-color:#d8ddd4 !important;
+}
+body .timeline .tl-bar,
+body .timeline .progress-fill{
+  background:linear-gradient(90deg,#6f8b78,#87a08f) !important;
+  box-shadow:none !important;
+}
+body .tl-name,
+body .tl-meta,
+body .tl-dates{
+  color:#243142 !important;
+}
+body .tl-dates{
+  color:#6d7a70 !important;
+}
+
+/* Exact schedule classes used by app.js */
+body .schedule-event-chip,
+body .schedule-event-chip.online,
+body .schedule-event-chip.compact.online{
+  background:#e7f0ea !important;
+  border:1px solid #b8caba !important;
+  color:#4f6959 !important;
+  box-shadow:none !important;
+}
+body .schedule-event-chip.onsite,
+body .schedule-event-chip.compact.onsite{
+  background:#f4e7d2 !important;
+  border:1px solid #d7b67a !important;
+  color:#8a5f20 !important;
+  box-shadow:none !important;
+}
+body .schedule-event-chip span,
+body .schedule-event-chip strong,
+body .schedule-event-chip small{
+  color:inherit !important;
+  text-shadow:none !important;
+}
+body .schedule-day-number{
+  background:transparent !important;
+  color:#243142 !important;
+}
+body .schedule-day.today .schedule-day-number,
+body .schedule-day.selected .schedule-day-number{
+  background:#6f8b78 !important;
+  color:#ffffff !important;
+  border-radius:999px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:30px !important;
+  height:30px !important;
+}
+body .schedule-day.selected{
+  outline:2px solid rgba(111,139,120,.38) !important;
+  outline-offset:-2px !important;
+  border-color:#9eaaa1 !important;
+  background:#f8faf7 !important;
+}
+body .schedule-side,
+body .schedule-side *,
+body .schedule-form,
+body .schedule-detail-card{
+  --blue:#6f8b78 !important;
+  --blue-2:#87a08f !important;
+}
+body .schedule-side .mode-pill,
+body .schedule-side .badge,
+body .schedule-mode-pill{
+  background:#eef2ee !important;
+  border-color:#d4ddd5 !important;
+  color:#4f6959 !important;
+}
+
+/* Report export / PDF badge exact classes */
+body .report-export-option.timeline-pack,
+body .report-export-option.full-pack,
+body .report-export-option.executive-summary{
+  background:#ffffff !important;
+  border-color:#d8ddd4 !important;
+}
+body .report-export-option.timeline-pack:hover,
+body .report-export-option.full-pack:hover,
+body .report-export-option.executive-summary:hover{
+  background:#f4f7f3 !important;
+  border-color:#aebbad !important;
+}
+body .report-export-option.timeline-pack em,
+body .report-export-option.full-pack em,
+body .report-export-option.executive-summary em{
+  background:#b8872f !important;
+  color:#ffffff !important;
+  border-color:#9d7327 !important;
+}
+
+/* Gantt hard override for class-only colored bars */
+body .gantt-bar-shell.assessment,
+body .gantt-bar-shell.assessment:hover{
+  background:linear-gradient(90deg,#7f9a89 0%,#6f8b78 100%) !important;
+  border-color:#b8caba !important;
+}
+body .gantt-bar-shell.reporting,
+body .gantt-bar-shell.reporting:hover{
+  background:linear-gradient(90deg,#c59a47 0%,#a9772b 100%) !important;
+  border-color:#d6b777 !important;
+}
+body .gantt-bar-shell.hold,
+body .gantt-bar-shell.hold-reporting,
+body .gantt-bar-shell.hold:hover,
+body .gantt-bar-shell.hold-reporting:hover{
+  background:linear-gradient(90deg,#d9c08b 0%,#b89b61 100%) !important;
+  border-color:#d9c08b !important;
+}
+
+/* Remove remaining old blue fills in common UI states */
+body .active:not(.tab):not(.status):not(.role-badge),
+body button.active:not(.tab):not(.status),
+body .selected:not(.schedule-day):not(.schedule-date),
+body .is-selected:not(.schedule-day):not(.schedule-date){
+  border-color:#6f8b78 !important;
+}
+body .tab.active{
+  background:#eef2ee !important;
+  border-color:#c9d4cb !important;
+  color:#4d5a52 !important;
+}
+body .tab.active *{
+  color:inherit !important;
+}
+
+/* stronger hard-coded blue replacement */
+body *[style*="#2563eb"],
+body *[style*="#1d4ed8"],
+body *[style*="#3b82f6"],
+body *[style*="#60a5fa"],
+body *[style*="#2b6cb0"],
+body *[style*="#376bd6"],
+body *[style*="rgb(43, 108, 176)"],
+body *[style*="rgb(31, 95, 159)"],
+body *[style*="rgb(77, 132, 209)"]{
+  background:#e7f0ea !important;
+  border-color:#b8caba !important;
+  color:#4f6959 !important;
+  box-shadow:none !important;
+}

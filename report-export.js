@@ -1002,13 +1002,24 @@
     });
   }
 
-  async function ensurePdfMake(){
-    if(window.pdfMake && window.pdfMake.createPdf) return;
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js');
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.min.js');
-    if(!window.pdfMake || !window.pdfMake.createPdf){
-      throw new Error('Fitur PDF belum siap. Muat ulang halaman lalu coba kembali.');
+  function ensurePdfEngine(){
+    if(window.pdfFonts && window.pdfFonts.pdfMake && window.pdfFonts.pdfMake.vfs && window.pdfMake){
+      window.pdfMake.vfs = window.pdfFonts.pdfMake.vfs;
     }
+    if(!window.pdfMake || !window.pdfMake.createPdf){
+      throw new Error('pdfMake is not loaded.');
+    }
+    return window.pdfMake;
+  }
+
+  async function ensurePdfMake(){
+    if(window.pdfMake && window.pdfMake.createPdf){
+      ensurePdfEngine();
+      return;
+    }
+    await loadScript('https://cdn.jsdelivr.net/npm/pdfmake@0.2.10/build/pdfmake.min.js');
+    await loadScript('https://cdn.jsdelivr.net/npm/pdfmake@0.2.10/build/vfs_fonts.js');
+    ensurePdfEngine();
   }
 
   function downloadBlob(blob, filename){
@@ -1017,38 +1028,35 @@
     link.href = url;
     link.download = filename;
     link.rel = 'noopener';
-    link.style.display = 'none';
+    link.target = '_self';
+    link.style.position = 'fixed';
+    link.style.left = '-9999px';
+    link.style.top = '-9999px';
     document.body.appendChild(link);
-    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-    link.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 15000);
+    link.click();
+    setTimeout(() => {
+      try{ link.remove(); }catch(_){}
+      URL.revokeObjectURL(url);
+    }, 15000);
   }
 
   function savePdfDocument(docDefinition, filename){
     return new Promise((resolve, reject) => {
       try{
-        const pdf = window.pdfMake.createPdf(docDefinition);
-        let settled = false;
-        const done = () => {
-          if(settled) return;
-          settled = true;
-          resolve(filename);
-        };
+        const pdfMake = ensurePdfEngine();
+        const pdf = pdfMake.createPdf(docDefinition);
 
-        if(typeof pdf.download === 'function'){
-          try{
-            pdf.download(filename, done);
-            setTimeout(done, 1800);
-            return;
-          }catch(downloadError){
-            console.warn('[PDF download fallback]', downloadError);
-          }
+        if(!pdf || typeof pdf.getBlob !== 'function'){
+          throw new Error('PDF engine is not ready to create a file.');
         }
 
         pdf.getBlob((blob) => {
           try{
+            if(!blob || !blob.size){
+              throw new Error('PDF file was created empty.');
+            }
             downloadBlob(blob, filename);
-            done();
+            resolve(filename);
           }catch(err){
             reject(err);
           }
