@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" role="img" aria-label="Arunika Healthcare logo">
+  <rect width="520" height="140" rx="28" fill="#ffffff"/>
+  <g transform="translate(24 18)"><path d="M52 27a26 26 0 0 1 26 26H26a26 26 0 0 1 26-26Z" fill="#d98068"/><path d="M52 41v25M40 54h24" stroke="#fff" stroke-width="8" stroke-linecap="round"/><path d="M52 83c-14-2-24-13-26-28 14 2 24 13 26 28Z" fill="#6f866f"/><path d="M52 83c14-2 24-13 26-28-14 2-24 13-26 28Z" fill="#6f866f"/></g>
+  <text x="132" y="69" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="#202830">Arunika</text>
+  <text x="134" y="102" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="5" fill="#566955">HEALTHCARE</text>
+  <path d="M132 112h70M500 112h-55" stroke="#b7842c" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+</svg>

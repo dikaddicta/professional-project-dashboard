@@ -37,21 +37,15 @@ const REPORT_LANGUAGE_OPTIONS = [
   { value: 'id', label: 'Bahasa Indonesia', short: 'ID' },
   { value: 'en', label: 'English', short: 'EN' }
 ];
-const BRANDING_ACCENT_PRESETS = ['#0f2747', '#1f5f9f', '#2563eb', '#0f766e', '#7c3aed', '#334155'];
+const BRANDING_ACCENT_PRESETS = ['#566955', '#b7842c', '#2f5f5b', '#6f6758', '#8a5a38', '#334155'];
 const BRANDING_LOGO_BUCKET = 'project-brand-assets';
 const BRANDING_LOGO_MAX_BYTES = 2 * 1024 * 1024;
 const BRANDING_LOGO_ALLOWED_TYPES = new Set(['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/svg+xml']);
 const PROJECT_CODE_LABELS = {
-  1: "Asteria Bank",
-  2: "Merapi Retail Group",
-  3: "Sagara Logistics",
-  4: "Vantara Insurance",
-  5: "Arunika Healthcare",
-  6: "Zenith Finance",
-  7: "Borealis Energy",
-  8: "Lumina Telco",
-  9: "Kaldera Manufacturing",
-  10: "Nova Public Services"
+  1: 'Project 1 - BPR Sentosa',
+  2: 'Project 2 - Shinhan',
+  3: 'Project 3 - Shinhan',
+  4: 'Project 4 - Shinhan'
 };
 function loadReportExportLanguage(){
   try{
@@ -124,14 +118,52 @@ function projectIsArchived(project){ return normalizeProjectStatus(project?.proj
 function projectIsExplicitlyCompleted(project){ return normalizeProjectStatus(project?.projectStatus, project?.isActive !== false) === 'completed'; }
 
 function isHexColor(value){ return /^#[0-9a-f]{6}$/i.test(String(value || '').trim()); }
+
+const DEMO_CLIENT_LOGO_MAP = {
+  'asteria bank': 'asteria-bank.svg',
+  'merapi retail group': 'merapi-retail-group.svg',
+  'sagara logistics': 'sagara-logistics.svg',
+  'vantara insurance': 'vantara-insurance.svg',
+  'arunika healthcare': 'arunika-healthcare.svg',
+  'zenith finance': 'zenith-finance.svg',
+  'borealis energy': 'borealis-energy.svg',
+  'lumina telco': 'lumina-telco.svg',
+  'kaldera manufacturing': 'kaldera-manufacturing.svg',
+  'nova public services': 'nova-public-services.svg'
+};
+const DEMO_CLIENT_ACCENT_MAP = {
+  'asteria bank': '#566955',
+  'merapi retail group': '#7a6a38',
+  'sagara logistics': '#2f5f5b',
+  'vantara insurance': '#566955',
+  'arunika healthcare': '#68785f',
+  'zenith finance': '#b7842c',
+  'borealis energy': '#54735f',
+  'lumina telco': '#5e6572',
+  'kaldera manufacturing': '#8a5a38',
+  'nova public services': '#566955'
+};
+function getDemoClientKey(value){
+  return normalize(value).replace(/\s+/g, ' ');
+}
+function getDemoClientLogoUrl(value){
+  const key = getDemoClientKey(value);
+  const file = DEMO_CLIENT_LOGO_MAP[key];
+  return file ? `assets/client-logos/${file}` : '';
+}
+function getDemoClientAccent(value){
+  return DEMO_CLIENT_ACCENT_MAP[getDemoClientKey(value)] || '#566955';
+}
+
 function defaultProjectBranding(project = {}){
   const client = project.clientName || project.code || 'Client';
+  const demoLogoUrl = getDemoClientLogoUrl(client);
   return {
-    clientLogoUrl: '',
-    brandAccentColor: '#0f2747',
+    clientLogoUrl: demoLogoUrl,
+    brandAccentColor: getDemoClientAccent(client),
     preparedFor: client,
     preparedBy: 'Professional Project Team',
-    confidentialityLabel: `Confidential — Prepared for ${client}`,
+    confidentialityLabel: `Confidential — Demo Data`,
     reportFooterText: 'This report is intended solely for authorized stakeholders.',
     reportLanguage: 'id',
     showClientLogo: true,
@@ -142,7 +174,7 @@ function normalizeProjectBranding(raw = {}, project = {}){
   const base = defaultProjectBranding(project);
   const accent = raw.brand_accent_color || raw.brandAccentColor || base.brandAccentColor;
   return {
-    clientLogoUrl: raw.client_logo_url || raw.clientLogoUrl || '',
+    clientLogoUrl: raw.client_logo_url || raw.clientLogoUrl || base.clientLogoUrl,
     brandAccentColor: isHexColor(accent) ? accent : base.brandAccentColor,
     preparedFor: raw.prepared_for || raw.preparedFor || base.preparedFor,
     preparedBy: raw.prepared_by || raw.preparedBy || base.preparedBy,

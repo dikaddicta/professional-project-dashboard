@@ -221,3 +221,234 @@ body:before{
   .sidebar{background:rgba(255,255,255,.94) !important}
   .command-nav{scrollbar-color:#a8d2cc transparent}
 }
+
+/* Demo Rev03.1 — Dashboard warm enterprise alignment */
+:root{
+  --bg:#f8faf7;
+  --bg-soft:#fbfaf6;
+  --panel:#ffffff;
+  --panel-2:#fbfaf6;
+  --line:#dcded5;
+  --line-strong:#b9c8b5;
+  --text:#1d2730;
+  --muted:#6b756a;
+  --blue:#566955;
+  --blue-2:#6f806b;
+  --cyan:#7c9483;
+  --red:#b4532d;
+  --green:#566955;
+  --yellow:#b7842c;
+  --shadow:0 18px 42px rgba(64,70,52,.085);
+  --ppd-sage:#566955;
+  --ppd-sage-2:#6f806b;
+  --ppd-sage-soft:#f1f5ef;
+  --ppd-bronze:#b7842c;
+  --ppd-bronze-2:#d2a756;
+  --ppd-ink:#1f252b;
+  --ppd-line:#dcded5;
+}
+body{
+  background:
+    radial-gradient(circle at 8% 0%, rgba(86,105,85,.075), transparent 28%),
+    radial-gradient(circle at 96% 4%, rgba(183,132,44,.075), transparent 28%),
+    linear-gradient(180deg,#fffdfa 0%,#f8faf7 48%,#f1f5ef 100%) !important;
+}
+body:before{
+  background-image:
+    linear-gradient(rgba(86,105,85,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(86,105,85,.035) 1px, transparent 1px) !important;
+}
+.primary-btn,
+.command-trigger,
+.segmented button.active,
+.schedule-submit,
+.backup-action-card.primary .primary-btn,
+.report-export-option.full-pack,
+.home-stat-card.average{
+  background:linear-gradient(135deg,#566955 0%,#394738 100%) !important;
+  box-shadow:0 14px 28px rgba(86,105,85,.18) !important;
+  color:#fff !important;
+}
+.report-export-option.full-pack:hover{background:linear-gradient(135deg,#627761,#3f4d3e) !important;filter:none !important;}
+.primary-btn:hover,.command-trigger:hover,.schedule-submit:hover{filter:brightness(1.04) !important;}
+.ghost-btn,.small-btn,.tab,.report-export-option,.client-project-pill,.client-project-filter,.hero-kicker span,.hero-meta span:not(.health-badge),.schedule-top-actions input[type="month"],.schedule-top-actions select{
+  border-color:var(--ppd-line) !important;
+  color:var(--ppd-ink) !important;
+}
+.tab,
+.report-export-option,
+.backup-action-card,
+.home-stat-card,
+.schedule-side>section,
+.schedule-form,
+.schedule-readonly-note,
+.schedule-calendar,
+.branding-preview-card,
+.hero-side-card,
+.hero-side-grid>div{
+  background:linear-gradient(180deg,#fff,#fffdfa) !important;
+  border-color:var(--ppd-line) !important;
+  box-shadow:0 16px 36px rgba(64,70,52,.06) !important;
+}
+.tab.active,
+.project-link.active,
+.command-nav-item.active,
+.command-project-trigger.active,
+.small-btn.active{
+  background:linear-gradient(180deg,#ffffff 0%,#f6f4eb 100%) !important;
+  border-color:#aebaab !important;
+  color:var(--ppd-ink) !important;
+  box-shadow:inset 0 -3px 0 rgba(183,132,44,.75),0 12px 24px rgba(64,70,52,.05) !important;
+}
+.tab.active{color:var(--ppd-ink) !important;}
+.tab:hover,.ghost-btn:hover,.small-btn:hover,.report-export-option:hover{
+  background:#f6f4eb !important;
+  border-color:#c9c2a9 !important;
+  box-shadow:0 14px 26px rgba(64,70,52,.08) !important;
+}
+.eyebrow,.drawer-eyebrow,.command-results span,.report-export-header span,.report-export-option em,.report-language-picker span,
+.schedule-event-chip span,.schedule-selected-item span,.schedule-selected-item small{
+  color:#566955 !important;
+}
+.report-export-option em,.report-language-picker span{
+  background:#f1f5ef !important;
+  border-color:#d6dfd1 !important;
+}
+.kpi:before,.insight-card:before,.progress-line b,.hero-progress-track b,.mini-progress .bar b,.gantt-bar-fill,.tl-bar{
+  background:linear-gradient(90deg,#566955 0%,#7c9483 100%) !important;
+}
+.executive-hero{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.98),rgba(255,253,250,.96) 58%,rgba(241,245,239,.96)),
+    radial-gradient(circle at 90% 8%,rgba(183,132,44,.12),transparent 34%) !important;
+  border-color:var(--ppd-line) !important;
+  box-shadow:0 26px 64px rgba(64,70,52,.10) !important;
+}
+.executive-hero:before{
+  background:linear-gradient(90deg,rgba(86,105,85,.20),transparent 38%,rgba(183,132,44,.16)) !important;
+}
+.hero-kicker span{
+  background:#f5f6f0 !important;
+  border-color:#d6dfd1 !important;
+  color:#566955 !important;
+}
+.hero-progress-track{background:#ecefe8 !important;}
+.hero-branding{
+  border-color:var(--ppd-line) !important;
+  border-left-color:var(--brand-accent,#566955) !important;
+  background:linear-gradient(180deg,#ffffff,#fffdfa) !important;
+}
+.hero-branding img{
+  width:150px !important;
+  height:56px !important;
+  max-width:170px !important;
+  object-fit:contain !important;
+  padding:3px !important;
+  border-color:#e2dfd2 !important;
+}
+.client-branding-card:before{background:linear-gradient(180deg,#566955,#b7842c) !important;}
+.branding-preview-card{
+  border-top-color:var(--brand-accent,#566955) !important;
+  background:linear-gradient(180deg,#ffffff,#fffdfa) !important;
+}
+.branding-preview-logo{
+  min-height:96px !important;
+  border-color:#cbd6c8 !important;
+  background:linear-gradient(180deg,#fff,#fffdfa) !important;
+}
+.branding-preview-logo img{
+  max-width:260px !important;
+  max-height:86px !important;
+  width:auto !important;
+}
+.brand-logo-fallback{background:linear-gradient(135deg,#566955,#b7842c) !important;}
+.branding-preview-body span,.branding-preview-footer{color:#566955 !important;}
+.branding-preview-footer,.branding-form-grid input,.branding-form-grid select,.branding-check{border-color:var(--ppd-line) !important;}
+.branding-form-grid input:focus,.branding-form-grid select:focus,.table-tools input:focus,.table-tools select:focus,.schedule-form input:focus,.schedule-form select:focus,.schedule-form textarea:focus{
+  border-color:#aebaab !important;
+  box-shadow:0 0 0 4px rgba(86,105,85,.10) !important;
+}
+/* Timeline / Gantt */
+.gantt-bar-shell.assessment .gantt-bar-fill,
+.gantt-bar-shell.timeline .gantt-bar-fill,
+.legend-item i.assessment,
+.legend-item i.timeline,
+.tl-bar.assessment,
+.tl-bar.timeline{
+  background:linear-gradient(90deg,#566955 0%,#748970 100%) !important;
+}
+.gantt-bar-shell.reporting .gantt-bar-fill,
+.legend-item i.reporting,
+.tl-bar.reporting{
+  background:linear-gradient(90deg,#b7842c 0%,#d2a756 100%) !important;
+}
+.gantt-board,.gantt-left,.gantt-right,.month-block,.day-block{
+  border-color:#e4e4dc !important;
+}
+.excel thead th,.sticky-head,.gantt-left.sticky-head,.gantt-right.sticky-head,.schedule-weekdays{
+  background:#f1f5ef !important;
+  color:#323a31 !important;
+  border-color:#dcded5 !important;
+}
+.month-block{background:#f1f5ef !important;color:#323a31 !important;border-color:#dcded5 !important;}
+.day-block{background:#fffdfa !important;color:#6b756a !important;border-color:#e6e4da !important;}
+.gantt-left{background:#fbfaf6 !important;border-right-color:#dcded5 !important;color:#1f252b !important;}
+.gantt-gridline span{border-right-color:#e8e6dd !important;}
+/* Schedule */
+.schedule-main{background:linear-gradient(180deg,#fffdfa 0%,#f8faf7 100%) !important;}
+.schedule-hero{border-bottom-color:#dcded5 !important;}
+.schedule-calendar{border-color:#dcded5 !important;}
+.schedule-day{border-right-color:#e6e4da !important;border-bottom-color:#e6e4da !important;background:#fff !important;}
+.schedule-day:hover{background:#fbfaf6 !important;box-shadow:inset 0 0 0 1px #d6dfd1 !important;}
+.schedule-day.muted{background:#fffdfa !important;color:#a3a399 !important;}
+.schedule-day.today .schedule-day-number,
+.schedule-day.selected .schedule-day-number{background:#566955 !important;color:#fff !important;box-shadow:0 8px 16px rgba(86,105,85,.18) !important;}
+.schedule-day.selected{outline-color:#7b7f65 !important;background:#fbfaf6 !important;}
+.schedule-event-chip,
+.schedule-event-chip.mode-online{
+  border-color:#d6dfd1 !important;
+  background:linear-gradient(90deg,#f1f5ef,#fffdfa) !important;
+  color:#2f3a2c !important;
+  box-shadow:0 5px 12px rgba(86,105,85,.07) !important;
+}
+.schedule-event-chip.mode-onsite{
+  border-color:#e3cc96 !important;
+  background:linear-gradient(90deg,#fff6df,#fffdfa) !important;
+  color:#61420f !important;
+}
+.schedule-event-chip:hover{background:#f6f4eb !important;border-color:#b9c8b5 !important;}
+.schedule-event-chip span{color:#566955 !important;}
+.schedule-event-chip.mode-onsite span{color:#9a6716 !important;}
+.schedule-selected-item{border-color:#e4e4dc !important;background:#fffdfa !important;}
+.schedule-selected-item:hover,.schedule-selected-item.active{border-color:#b9c8b5 !important;background:#f6f4eb !important;box-shadow:0 10px 22px rgba(86,105,85,.08) !important;}
+.schedule-form input,.schedule-form select,.schedule-form textarea,.schedule-top-actions input[type="month"],.schedule-top-actions select{
+  border-color:#dcded5 !important;
+  color:#1f252b !important;
+  background:#fff !important;
+  box-shadow:0 10px 22px rgba(64,70,52,.04) !important;
+}
+.schedule-mode-legend .legend-online{background:linear-gradient(90deg,#566955,#7c9483) !important;}
+.schedule-mode-legend .legend-onsite{background:linear-gradient(90deg,#b7842c,#d2a756) !important;}
+.schedule-mode-badge.mode-online,.schedule-selected-item .mode-online,.mode-online{
+  border-color:#d6dfd1 !important;
+  background:#f1f5ef !important;
+  color:#566955 !important;
+}
+.schedule-mode-badge.mode-onsite,.schedule-selected-item .mode-onsite,.mode-onsite{
+  border-color:#e3cc96 !important;
+  background:#fff6df !important;
+  color:#9a6716 !important;
+}
+/* Backup / export */
+.backup-action-card.primary{
+  background:linear-gradient(135deg,#394738,#566955) !important;
+  border-color:#d1c6a4 !important;
+  color:#fff !important;
+}
+.backup-action-card.primary:after{background:radial-gradient(circle,rgba(183,132,44,.22),transparent 62%) !important;}
+.backup-action-card.primary .primary-btn{background:linear-gradient(135deg,#b7842c,#d2a756) !important;color:#fff !important;}
+.backup-stat-icon,.backup-note-icon{background:#f6f4eb !important;color:#566955 !important;border-color:#dcded5 !important;}
+/* Remove remaining cool-blue accents */
+button[style*="2563eb"],
+[style*="21a4d6"],
+[style*="1f5f9f"]{filter:saturate(.55) hue-rotate(110deg) !important;}
