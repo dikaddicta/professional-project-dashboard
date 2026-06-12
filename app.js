@@ -42,16 +42,16 @@ const BRANDING_LOGO_BUCKET = 'project-brand-assets';
 const BRANDING_LOGO_MAX_BYTES = 2 * 1024 * 1024;
 const BRANDING_LOGO_ALLOWED_TYPES = new Set(['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/svg+xml']);
 const PROJECT_CODE_LABELS = {
-  1: "Asteria Bank - ISO 27001:2022 Certification Readiness",
-  2: "Merapi Retail Group - ERP Rollout Governance",
-  3: "Sagara Logistics - Cloud Migration Assessment",
-  4: "Vantara Insurance - Data Privacy Compliance Program",
-  5: "Arunika Healthcare - Security Awareness & Policy Refresh",
-  6: "Zenith Finance - Digital Banking Security Remediation",
-  7: "Borealis Energy - OT Security Risk Assessment",
-  8: "Lumina Telco - Customer Data Platform Governance",
-  9: "Kaldera Manufacturing - Business Continuity & DR Program",
-  10: "Nova Public Services - e-Service Modernization PMO"
+  1: "Asteria Bank",
+  2: "Merapi Retail Group",
+  3: "Sagara Logistics",
+  4: "Vantara Insurance",
+  5: "Arunika Healthcare",
+  6: "Zenith Finance",
+  7: "Borealis Energy",
+  8: "Lumina Telco",
+  9: "Kaldera Manufacturing",
+  10: "Nova Public Services"
 };
 function loadReportExportLanguage(){
   try{

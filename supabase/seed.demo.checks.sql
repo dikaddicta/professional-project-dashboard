@@ -25,3 +25,10 @@ left join public.project_schedule_events se on se.project_id = p.id
 where p.legacy_id between 'project-01' and 'project-10'
 group by p.code, p.name, p.project_status
 order by p.code;
+
+-- Project display codes should use client names, not internal numeric demo codes.
+select
+  count(*) filter (where code ~ '^PPD-[0-9]{3}$') as internal_code_rows,
+  count(*) filter (where code = client_name) as code_matches_client_name
+from public.projects
+where legacy_id between 'project-01' and 'project-10';

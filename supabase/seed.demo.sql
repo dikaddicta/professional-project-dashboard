@@ -44,16 +44,16 @@ with demo_accounts(email, full_name, role) as (
   values
   ('pm@professional-demo.local', 'Demo Project Manager', 'project_manager'),
   ('admin@professional-demo.local', 'Demo Administrator', 'admin'),
-  ('client-project-01@professional-demo.local', 'Demo Client PPD-001', 'guest'),
-  ('client-project-02@professional-demo.local', 'Demo Client PPD-002', 'guest'),
-  ('client-project-03@professional-demo.local', 'Demo Client PPD-003', 'guest'),
-  ('client-project-04@professional-demo.local', 'Demo Client PPD-004', 'guest'),
-  ('client-project-05@professional-demo.local', 'Demo Client PPD-005', 'guest'),
-  ('client-project-06@professional-demo.local', 'Demo Client PPD-006', 'guest'),
-  ('client-project-07@professional-demo.local', 'Demo Client PPD-007', 'guest'),
-  ('client-project-08@professional-demo.local', 'Demo Client PPD-008', 'guest'),
-  ('client-project-09@professional-demo.local', 'Demo Client PPD-009', 'guest'),
-  ('client-project-10@professional-demo.local', 'Demo Client PPD-010', 'guest')
+  ('client-project-01@professional-demo.local', 'Demo Client Asteria Bank', 'guest'),
+  ('client-project-02@professional-demo.local', 'Demo Client Merapi Retail Group', 'guest'),
+  ('client-project-03@professional-demo.local', 'Demo Client Sagara Logistics', 'guest'),
+  ('client-project-04@professional-demo.local', 'Demo Client Vantara Insurance', 'guest'),
+  ('client-project-05@professional-demo.local', 'Demo Client Arunika Healthcare', 'guest'),
+  ('client-project-06@professional-demo.local', 'Demo Client Zenith Finance', 'guest'),
+  ('client-project-07@professional-demo.local', 'Demo Client Borealis Energy', 'guest'),
+  ('client-project-08@professional-demo.local', 'Demo Client Lumina Telco', 'guest'),
+  ('client-project-09@professional-demo.local', 'Demo Client Kaldera Manufacturing', 'guest'),
+  ('client-project-10@professional-demo.local', 'Demo Client Nova Public Services', 'guest')
 )
 insert into public.profiles(id,email,full_name,role)
 select u.id, a.email, a.full_name, a.role
@@ -70,16 +70,16 @@ on conflict(id) do update set
 
 with input(legacy_id, code, name, client_name, start_date, end_date, health_override, health_reason, next_milestone_task, current_phase_task, pic_cywa, pic_client, project_status, is_active) as (
   values
-  ('project-01', 'PPD-001', 'ISO 27001:2022 Certification Readiness', 'Asteria Bank', '2025-02-03', '2025-06-20', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Handover Completed', 'Project Closure', 'Demo PM', 'Client PIC 01', 'completed', true),
-  ('project-02', 'PPD-002', 'ERP Rollout Governance', 'Merapi Retail Group', '2025-03-10', '2025-09-30', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Post-implementation Review Completed', 'Project Closure', 'Demo PM', 'Client PIC 02', 'completed', true),
-  ('project-03', 'PPD-003', 'Cloud Migration Assessment', 'Sagara Logistics', '2025-04-01', '2025-11-28', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Migration Assessment Report Accepted', 'Project Closure', 'Demo PM', 'Client PIC 03', 'completed', true),
-  ('project-04', 'PPD-004', 'Data Privacy Compliance Program', 'Vantara Insurance', '2025-06-02', '2025-12-19', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Compliance Evidence Pack Completed', 'Project Closure', 'Demo PM', 'Client PIC 04', 'completed', true),
-  ('project-05', 'PPD-005', 'Security Awareness & Policy Refresh', 'Arunika Healthcare', '2025-08-04', '2026-03-27', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Final Awareness Report Completed', 'Project Closure', 'Demo PM', 'Client PIC 05', 'completed', true),
-  ('project-06', 'PPD-006', 'Digital Banking Security Remediation', 'Zenith Finance', '2026-02-02', '2026-10-30', 'Attention', 'Demo project health indicator for portfolio presentation.', 'Control Validation Workshop', 'Remediation Execution', 'Demo PM', 'Client PIC 06', 'active', true),
-  ('project-07', 'PPD-007', 'OT Security Risk Assessment', 'Borealis Energy', '2026-04-06', '2027-02-26', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Risk Register Review', 'Site Assessment', 'Demo PM', 'Client PIC 07', 'active', true),
-  ('project-08', 'PPD-008', 'Customer Data Platform Governance', 'Lumina Telco', '2026-05-11', '2027-05-28', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Data Ownership Matrix Sign-off', 'Governance Design', 'Demo PM', 'Client PIC 08', 'active', true),
-  ('project-09', 'PPD-009', 'Business Continuity & DR Program', 'Kaldera Manufacturing', '2026-06-01', '2027-09-24', 'Attention', 'Demo project health indicator for portfolio presentation.', 'BIA Review Session', 'Business Impact Analysis', 'Demo PM', 'Client PIC 09', 'active', true),
-  ('project-10', 'PPD-010', 'e-Service Modernization PMO', 'Nova Public Services', '2026-07-06', '2027-12-17', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Project Governance Kick-off', 'Initiation', 'Demo PM', 'Client PIC 10', 'active', true)
+  ('project-01', 'Asteria Bank', 'ISO 27001:2022 Certification Readiness', 'Asteria Bank', '2025-02-03', '2025-06-20', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Handover Completed', 'Project Closure', 'Demo PM', 'Client PIC 01', 'completed', true),
+  ('project-02', 'Merapi Retail Group', 'ERP Rollout Governance', 'Merapi Retail Group', '2025-03-10', '2025-09-30', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Post-implementation Review Completed', 'Project Closure', 'Demo PM', 'Client PIC 02', 'completed', true),
+  ('project-03', 'Sagara Logistics', 'Cloud Migration Assessment', 'Sagara Logistics', '2025-04-01', '2025-11-28', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Migration Assessment Report Accepted', 'Project Closure', 'Demo PM', 'Client PIC 03', 'completed', true),
+  ('project-04', 'Vantara Insurance', 'Data Privacy Compliance Program', 'Vantara Insurance', '2025-06-02', '2025-12-19', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Compliance Evidence Pack Completed', 'Project Closure', 'Demo PM', 'Client PIC 04', 'completed', true),
+  ('project-05', 'Arunika Healthcare', 'Security Awareness & Policy Refresh', 'Arunika Healthcare', '2025-08-04', '2026-03-27', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Final Awareness Report Completed', 'Project Closure', 'Demo PM', 'Client PIC 05', 'completed', true),
+  ('project-06', 'Zenith Finance', 'Digital Banking Security Remediation', 'Zenith Finance', '2026-02-02', '2026-10-30', 'Attention', 'Demo project health indicator for portfolio presentation.', 'Control Validation Workshop', 'Remediation Execution', 'Demo PM', 'Client PIC 06', 'active', true),
+  ('project-07', 'Borealis Energy', 'OT Security Risk Assessment', 'Borealis Energy', '2026-04-06', '2027-02-26', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Risk Register Review', 'Site Assessment', 'Demo PM', 'Client PIC 07', 'active', true),
+  ('project-08', 'Lumina Telco', 'Customer Data Platform Governance', 'Lumina Telco', '2026-05-11', '2027-05-28', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Data Ownership Matrix Sign-off', 'Governance Design', 'Demo PM', 'Client PIC 08', 'active', true),
+  ('project-09', 'Kaldera Manufacturing', 'Business Continuity & DR Program', 'Kaldera Manufacturing', '2026-06-01', '2027-09-24', 'Attention', 'Demo project health indicator for portfolio presentation.', 'BIA Review Session', 'Business Impact Analysis', 'Demo PM', 'Client PIC 09', 'active', true),
+  ('project-10', 'Nova Public Services', 'e-Service Modernization PMO', 'Nova Public Services', '2026-07-06', '2027-12-17', 'Healthy', 'Demo project health indicator for portfolio presentation.', 'Project Governance Kick-off', 'Initiation', 'Demo PM', 'Client PIC 10', 'active', true)
 )
 insert into public.projects(legacy_id, code, name, client_name, start_date, end_date, health_override, health_reason, next_milestone_task, current_phase_task, pic_cywa, pic_client, project_status, is_active)
 select legacy_id, code, name, client_name, start_date::date, end_date::date, health_override, health_reason, next_milestone_task, current_phase_task, pic_cywa, pic_client, project_status, is_active
@@ -1266,16 +1266,16 @@ on conflict(user_id, project_id) do update set access_role = excluded.access_rol
 
 with input(email, project_code) as (
   values
-  ('client-project-01@professional-demo.local', 'PPD-001'),
-  ('client-project-02@professional-demo.local', 'PPD-002'),
-  ('client-project-03@professional-demo.local', 'PPD-003'),
-  ('client-project-04@professional-demo.local', 'PPD-004'),
-  ('client-project-05@professional-demo.local', 'PPD-005'),
-  ('client-project-06@professional-demo.local', 'PPD-006'),
-  ('client-project-07@professional-demo.local', 'PPD-007'),
-  ('client-project-08@professional-demo.local', 'PPD-008'),
-  ('client-project-09@professional-demo.local', 'PPD-009'),
-  ('client-project-10@professional-demo.local', 'PPD-010')
+  ('client-project-01@professional-demo.local', 'Asteria Bank'),
+  ('client-project-02@professional-demo.local', 'Merapi Retail Group'),
+  ('client-project-03@professional-demo.local', 'Sagara Logistics'),
+  ('client-project-04@professional-demo.local', 'Vantara Insurance'),
+  ('client-project-05@professional-demo.local', 'Arunika Healthcare'),
+  ('client-project-06@professional-demo.local', 'Zenith Finance'),
+  ('client-project-07@professional-demo.local', 'Borealis Energy'),
+  ('client-project-08@professional-demo.local', 'Lumina Telco'),
+  ('client-project-09@professional-demo.local', 'Kaldera Manufacturing'),
+  ('client-project-10@professional-demo.local', 'Nova Public Services')
 )
 insert into public.project_access(user_id, project_id, access_role, can_edit, is_enabled)
 select pr.id, p.id, 'guest', false, true
