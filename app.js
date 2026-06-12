@@ -42,10 +42,16 @@ const BRANDING_LOGO_BUCKET = 'project-brand-assets';
 const BRANDING_LOGO_MAX_BYTES = 2 * 1024 * 1024;
 const BRANDING_LOGO_ALLOWED_TYPES = new Set(['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/svg+xml']);
 const PROJECT_CODE_LABELS = {
-  1: 'Project 1 - BPR Sentosa',
-  2: 'Project 2 - Shinhan',
-  3: 'Project 3 - Shinhan',
-  4: 'Project 4 - Shinhan'
+  1: "Asteria Bank - ISO 27001:2022 Certification Readiness",
+  2: "Merapi Retail Group - ERP Rollout Governance",
+  3: "Sagara Logistics - Cloud Migration Assessment",
+  4: "Vantara Insurance - Data Privacy Compliance Program",
+  5: "Arunika Healthcare - Security Awareness & Policy Refresh",
+  6: "Zenith Finance - Digital Banking Security Remediation",
+  7: "Borealis Energy - OT Security Risk Assessment",
+  8: "Lumina Telco - Customer Data Platform Governance",
+  9: "Kaldera Manufacturing - Business Continuity & DR Program",
+  10: "Nova Public Services - e-Service Modernization PMO"
 };
 function loadReportExportLanguage(){
   try{
