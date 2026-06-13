@@ -97,7 +97,7 @@ Jenis report:
 ```text
 Ringkasan Eksekutif
 Paket Laporan Lengkap
-Timeline Project
+Linimasa Proyek
 ```
 
 Sebelum membagikan report ke client, pastikan:
@@ -124,7 +124,7 @@ Format yang tersedia:
 ```text
 JSON backup project
 JSON backup semua project
-CSV Task Tracker
+CSV Pemantauan Tugas
 CSV Schedule
 CSV Activity Log
 ```

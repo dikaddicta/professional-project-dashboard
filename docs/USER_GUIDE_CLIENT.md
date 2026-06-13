@@ -24,7 +24,7 @@ Informasi yang dapat dipantau:
 Status Project
 Progress Project
 Kesiapan Dokumen
-Schedule Hari Ini
+Jadwal Hari Ini
 Agenda Terdekat
 Update Terbaru
 ```
@@ -70,7 +70,7 @@ Jenis report:
 ```text
 Ringkasan Eksekutif
 Paket Laporan Lengkap
-Timeline Project
+Linimasa Proyek
 ```
 
 ## 6. Batasan Akses

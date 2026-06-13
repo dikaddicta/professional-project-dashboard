@@ -32,7 +32,7 @@ Pada menu Project, Admin dapat membuka detail project dan memantau:
 ```text
 Progress project
 Timeline
-Task Tracker
+Pemantauan Tugas
 Dokumen
 Update project
 Risk dan issue

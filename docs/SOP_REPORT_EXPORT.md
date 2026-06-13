@@ -9,7 +9,7 @@ Report yang tersedia:
 ```text
 Ringkasan Eksekutif
 Paket Laporan Lengkap
-Timeline Project
+Linimasa Proyek
 ```
 
 ## 2. Pilihan Bahasa
@@ -54,7 +54,7 @@ Client Handover Readiness
 Agenda Project Terdekat
 ```
 
-## 5. Export Timeline Project
+## 5. Export Linimasa Proyek
 
 Gunakan report ini untuk melihat timeline dan milestone project.
 

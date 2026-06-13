@@ -759,7 +759,7 @@
       columns: [
         brandedLogoBlock(branding, logos, 92),
         { stack: [
-          { text: tr(payload, 'Timeline Project', 'Project Timeline'), style: 'timelineCoverTitle' },
+          { text: tr(payload, 'Linimasa Proyek', 'Project Timeline'), style: 'timelineCoverTitle' },
           { text: safe(project.name), style: 'coverProject', margin: [0, 4, 0, 0] },
           { text: `${safe(project.code)} · ${tr(payload, 'Disiapkan untuk', 'Prepared for')} ${safe(branding.preparedFor)} · ${periodStart ? formatShortDate(periodStart, payload) : '-'} — ${periodEnd ? formatShortDate(periodEnd, payload) : '-'}`, style: 'smallText', margin: [0, 3, 0, 0] }
         ]},
@@ -809,7 +809,7 @@
       info: {
         title: `Professional Project Timeline - ${safe(project.name)}`,
         author: 'Professional Project Dashboard',
-        subject: 'Timeline Project'
+        subject: 'Linimasa Proyek'
       },
       footer: function(currentPage, pageCount){
         return {
@@ -855,7 +855,7 @@
         brandedLogoBlock(branding, logos, 98),
         { stack: [
           { text: branding.confidentialityLabel, alignment: 'right', color: branding.brandAccentColor, bold: true, fontSize: 9 },
-          { text: branding.reportLanguage === 'id' ? 'Ringkasan Eksekutif PDF' : 'Executive Summary PDF', alignment: 'right', color: BRAND.slate, fontSize: 9, margin: [0, 6, 0, 0] }
+          { text: branding.reportLanguage === 'id' ? 'Ringkasan Eksekutif PDF' : 'Unduh Ringkasan Eksekutif', alignment: 'right', color: BRAND.slate, fontSize: 9, margin: [0, 6, 0, 0] }
         ], margin: [0, 6, 0, 0] }
       ]
     });
@@ -933,7 +933,7 @@
     }
 
     const execScheduleRows = scheduleRows(payload, 4, { futureOnly: true });
-    content.push({ text: tr(payload, 'Agenda Project Mendatang', 'Upcoming Project Agenda'), style: 'subTitle', margin: [0, 12, 0, 4] });
+    content.push({ text: tr(payload, 'Agenda Project Mendatang', 'Upcoming Agenda Proyek'), style: 'subTitle', margin: [0, 12, 0, 4] });
     if(execScheduleRows.length){
       content.push(makeTable(
         [tr(payload, 'Tanggal', 'Date'), tr(payload, 'Waktu', 'Time'), 'Agenda', 'Type', 'Mode', tr(payload, 'Lokasi / Link', 'Location / Link')],
@@ -956,12 +956,12 @@
       info: {
         title: `Professional Project Executive Summary - ${safe(project.name)}`,
         author: 'Professional Project Dashboard',
-        subject: 'Executive Summary PDF'
+        subject: 'Unduh Ringkasan Eksekutif'
       },
       footer: function(currentPage, pageCount){
         return {
           columns: [
-            { text: brandFooterText(payload, 'Executive Summary PDF'), color: BRAND.slate, fontSize: 8, margin: [40, 0, 0, 0] },
+            { text: brandFooterText(payload, 'Unduh Ringkasan Eksekutif'), color: BRAND.slate, fontSize: 8, margin: [40, 0, 0, 0] },
             { text: `${currentPage} / ${pageCount}`, alignment: 'right', color: BRAND.slate, fontSize: 8, margin: [0, 0, 40, 0] }
           ]
         };
@@ -1208,7 +1208,7 @@
     content.push(timelineRiskStrip(payload, 515));
     content.push({ text: tr(payload, 'Snapshot Timeline & Milestone', 'Timeline & Milestone Snapshot'), style: 'subTitle', margin: [0, 12, 0, 4] });
     content.push(timelineSnapshot(payload.timeline || [], payload));
-    content.push({ text: tr(payload, 'Ringkasan Task Tracker', 'Task Tracker Summary'), style: 'subTitle', margin: [0, 10, 0, 4] });
+    content.push({ text: tr(payload, 'Ringkasan Pemantauan Tugas', 'Pemantauan Tugas Summary'), style: 'subTitle', margin: [0, 10, 0, 4] });
     content.push(makeTable(
       ['No', 'Task', 'Status', tr(payload, 'Mulai', 'Start'), tr(payload, 'Selesai', 'End'), 'Progress'],
       (payload.tasks || []).slice(0, 28).map((t, i) => [i + 1, t.task, t.status, formatDateForReport(t.startDate, payload), formatDateForReport(t.endDate, payload), t.progress]),
@@ -1262,7 +1262,7 @@
     content.push({ text: tr(payload, 'Update Project Terbaru', 'Latest Project Updates'), style: 'subTitle', margin: [0, 10, 0, 4] });
     const updateRows = latestClientUpdates(payload, 6);
     content.push(updateRows.length ? makeTable([tr(payload, 'Tanggal', 'Date'), 'Type', 'Update', tr(payload, 'Tindak Lanjut', 'Next Step')], updateRows, [62, 68, '*', '*'], { small: true }) : { text: tr(payload, 'Belum ada update project terbaru yang tersedia.', 'No project updates are available yet.'), style: 'smallText' });
-    content.push({ text: tr(payload, 'Ringkasan Agenda Project', 'Project Agenda Summary'), style: 'subTitle', margin: [0, 10, 0, 4] });
+    content.push({ text: tr(payload, 'Ringkasan Agenda Project', 'Agenda Proyek Summary'), style: 'subTitle', margin: [0, 10, 0, 4] });
     const agendaRows = scheduleRows(payload, 12);
     content.push(agendaRows.length ? makeTable([tr(payload, 'Tanggal', 'Date'), tr(payload, 'Waktu', 'Time'), 'Agenda', 'Type', 'Mode', tr(payload, 'Lokasi / Link', 'Location / Link')], agendaRows, [54, 44, '*', 58, 44, '*'], { small: true }) : { text: tr(payload, 'Belum ada agenda project mendatang yang tersedia.', 'No upcoming project agenda is available yet.'), style: 'smallText' });
     content.push({ text: tr(payload, 'Catatan Handover', 'Handover Notes'), style: 'subTitle', margin: [0, 10, 0, 4] });

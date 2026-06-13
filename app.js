@@ -1226,10 +1226,10 @@ function renderSidebar(){
 function renderTabs(){
   const tabs = [
     {id:'summary', html:'Ringkasan <em>Timeline</em>'},
-    {id:'task', html:'<em>Task Tracker</em>'},
+    {id:'task', html:'<em>Pemantauan Tugas</em>'},
     {id:'document', html:'<em>Document List</em>'},
     {id:'output', html:'<em>Document Output</em>'},
-    {id:'timeline', html:'<em>Timeline Project</em>'},
+    {id:'timeline', html:'<em>Linimasa Proyek</em>'},
     {id:'meeting', html:'Catatan <em>Meeting</em> / <em>Update Log</em>'}
   ];
   return `<div class="tabs">${tabs.map(tab => `<button class="tab ${state.activeTab === tab.id ? 'active' : ''}" onclick="state.activeTab='${tab.id}';state.tableSearch='';render()">${tab.html}</button>`).join('')}</div>`;
@@ -1272,7 +1272,7 @@ function taskRows(project){
 function renderTaskTracker(project){
   const rows = taskRows(project);
   return `<section class="section-card">
-    <div class="section-head"><div><h2><em>Task Tracker</em></h2></div>
+    <div class="section-head"><div><h2><em>Pemantauan Tugas</em></h2></div>
       <div class="table-tools"><input placeholder="Cari update..." value="${esc(state.tableSearch)}" oninput="state.tableSearch=this.value;render()"><span class="save-dot">${state.session.canEdit ? 'Edit dari menu Pengelolaan Project' : 'Readonly'}</span></div>
     </div>
     <div class="table-wrap"><table class="excel modern-table task-table"><thead><tr>
@@ -1393,7 +1393,7 @@ function buildGanttModel(project){
 
 function renderTimelineProject(project){
   const model = buildGanttModel(project);
-  if(!model) return renderEmpty('Timeline belum siap.', 'Isi data Timeline Project agar jadwal yang disepakati bisa ditampilkan.');
+  if(!model) return renderEmpty('Timeline belum siap.', 'Isi data Linimasa Proyek agar jadwal yang disepakati bisa ditampilkan.');
   const dayWidth = 34;
   const headerWidth = model.totalDays * dayWidth;
   const filteredTasks = model.tasks.filter(task => !state.tableSearch || task.task.toLowerCase().includes(state.tableSearch.toLowerCase()));
@@ -1413,7 +1413,7 @@ function renderTimelineProject(project){
 
   return `<section class="section-card">
     <div class="section-head timeline-head">
-      <div><h2>Timeline Project</h2>${legend ? `<div class="gantt-legend">${legend}</div>` : ''}</div>
+      <div><h2>Linimasa Proyek</h2>${legend ? `<div class="gantt-legend">${legend}</div>` : ''}</div>
       <div class="table-tools"><input placeholder="Cari task..." value="${esc(state.tableSearch)}" oninput="state.tableSearch=this.value;render()"></div>
     </div>
     <div class="gantt-wrap">
@@ -1608,7 +1608,7 @@ function renderNewProjectIntro(){
     </section>
 
     <section class="editor-block">
-      <div class="block-title-row"><h3><em>Timeline Project</em></h3><button class="small-btn" onclick="addDraftRow('timelinePlan')">+ Tambah Timeline</button></div>
+      <div class="block-title-row"><h3><em>Linimasa Proyek</em></h3><button class="small-btn" onclick="addDraftRow('timelinePlan')">+ Tambah Timeline</button></div>
       <div class="editor-table-wrap"><table class="editor-table"><thead><tr>
         <th>Nama Timeline</th><th>Tanggal Mulai</th><th>Tanggal Selesai</th><th>Aksi</th>
       </tr></thead><tbody>
@@ -1622,7 +1622,7 @@ function renderNewProjectIntro(){
     </section>
 
     <section class="editor-block">
-      <div class="block-title-row"><h3><em>Task Tracker</em></h3><button class="small-btn" onclick="addDraftRow('tasks')">+ Tambah Task</button></div>
+      <div class="block-title-row"><h3><em>Pemantauan Tugas</em></h3><button class="small-btn" onclick="addDraftRow('tasks')">+ Tambah Task</button></div>
       <div class="editor-table-wrap"><table class="editor-table"><thead><tr>
         <th>Nama Task</th><th>Status</th><th>Tanggal Mulai Aktual</th><th>Tanggal Selesai Aktual</th><th>Assigned To</th><th>Progress</th><th>Notes</th><th>Aksi</th>
       </tr></thead><tbody>
@@ -1857,7 +1857,7 @@ function renderEditProjectPage(){
     </section>
 
     <section class="editor-block">
-      <div class="block-title-row"><h3><em>Timeline Project</em></h3><button class="small-btn" onclick="addTimelinePlan()">+ Tambah Timeline</button></div>
+      <div class="block-title-row"><h3><em>Linimasa Proyek</em></h3><button class="small-btn" onclick="addTimelinePlan()">+ Tambah Timeline</button></div>
       <p class="editor-help-text">Gunakan <strong>Tipe Utama</strong> untuk mengubah warna/status bar timeline. Jika timeline memiliki detail fase, warna bar mengikuti tipe pada masing-masing fase.</p>
       <div class="editor-table-wrap"><table class="editor-table timeline-editor-table"><thead><tr>
         <th>Nama Timeline</th><th>Tipe Utama</th><th>Tanggal Mulai</th><th>Tanggal Selesai</th><th>Detail Fase</th><th>Aksi</th>
@@ -1874,21 +1874,21 @@ function renderEditProjectPage(){
     </section>
 
     <section class="editor-block">
-      <div class="block-title-row"><h3><em>Task Tracker</em></h3><span class="editor-note">Otomatis mengikuti <em>Timeline Project</em></span></div>
-      <p class="editor-help-text">Daftar task dibuat dari <strong>Timeline Project</strong>. Ubah nama/tambah/hapus kegiatan di Timeline Project. Bagian ini hanya untuk update realisasi: status, tanggal aktual, PIC, progress, dan catatan tindak lanjut.</p>
+      <div class="block-title-row"><h3><em>Pemantauan Tugas</em></h3><span class="editor-note">Otomatis mengikuti <em>Linimasa Proyek</em></span></div>
+      <p class="editor-help-text">Daftar task dibuat dari <strong>Linimasa Proyek</strong>. Ubah nama/tambah/hapus kegiatan di Linimasa Proyek. Bagian ini hanya untuk update realisasi: status, tanggal aktual, PIC, progress, dan catatan tindak lanjut.</p>
       <div class="editor-table-wrap"><table class="editor-table task-sync-table"><thead><tr>
         <th class="narrow">No</th><th>Task dari Timeline</th><th>Status</th><th>Tanggal Mulai Aktual</th><th>Tanggal Selesai Aktual</th><th>Assigned To</th><th>Progress</th><th>Notes / Reason / Next Action</th>
       </tr></thead><tbody>
       ${syncTasksFromTimeline(project).length ? project.tasks.map((task, index) => `<tr>
         <td class="col-no">${index + 1}</td>
-        <td><input class="readonly-input" value="${esc(task.task)}" readonly title="Ubah nama task dari Timeline Project"></td>
+        <td><input class="readonly-input" value="${esc(task.task)}" readonly title="Ubah nama task dari Linimasa Proyek"></td>
         <td><select onchange="updateTask(${index}, 'status', this.value)">${STATUS_OPTIONS.map(opt => `<option value="${esc(opt)}" ${normalize(opt) === normalize(task.status) ? 'selected' : ''}>${esc(opt)}</option>`).join('')}</select></td>
         <td><input type="date" value="${esc(task.startDate)}" onchange="updateTask(${index}, 'startDate', this.value)"></td>
         <td><input type="date" value="${esc(task.endDate)}" onchange="updateTask(${index}, 'endDate', this.value)"></td>
         <td><select onchange="updateTask(${index}, 'assignedTo', this.value)"><option value="">Pilih member</option>${getMemberNames(project).map(name => `<option value="${esc(name)}" ${normalize(name) === normalize(task.assignedTo) ? 'selected' : ''}>${esc(name)}</option>`).join('')}</select></td>
         <td><input type="number" min="0" max="100" value="${pct(task.progress)}" onchange="updateTask(${index}, 'progress', this.value)"></td>
         <td><textarea placeholder="Alasan delay, update progress, blocker, atau next action" onchange="updateTask(${index}, 'notes', this.value)">${esc(task.notes || '')}</textarea></td>
-      </tr>`).join('') : `<tr><td colspan="8" class="center-muted">Belum ada task. Tambahkan kegiatan di Timeline Project terlebih dahulu.</td></tr>`}
+      </tr>`).join('') : `<tr><td colspan="8" class="center-muted">Belum ada task. Tambahkan kegiatan di Linimasa Proyek terlebih dahulu.</td></tr>`}
       </tbody></table></div>
     </section>
 
@@ -2301,7 +2301,7 @@ function deleteTimelinePhase(itemIndex, phaseIndex){
 }
 
 function deleteTimelinePlan(index){
-  if(!confirm('Hapus timeline ini? Task Tracker yang terkait juga akan dihapus dari daftar update realisasi.')) return;
+  if(!confirm('Hapus timeline ini? Pemantauan Tugas yang terkait juga akan dihapus dari daftar update realisasi.')) return;
   const project = selectedProject();
   if(!project) return;
   project.timelinePlan.splice(index, 1);
@@ -2775,8 +2775,8 @@ function buildClientOnboardingText(row){
     '',
     'Menu utama yang tersedia:',
     '- Executive Summary',
-    '- Timeline Project',
-    '- Task Tracker',
+    '- Linimasa Proyek',
+    '- Pemantauan Tugas',
     '- Document Status',
     '- Project Updates',
     '- Presentation Mode',
@@ -3083,8 +3083,8 @@ function renderProjectManagementPage(){
     </section>
     ${renderClientAccessConsole()}
     ${renderClientBrandingConsole()}
-    <section class="section-card project-admin-card"><div class="section-head premium-section-head"><div><h2>Project Berjalan</h2><p class="section-subtitle">Project yang masih aktif berjalan dan membutuhkan monitoring harian.</p></div><strong>${activeProjects.length}</strong></div>${renderProjectAdminRows(activeProjects)}</section>
-    <section class="section-card project-admin-card"><div class="section-head premium-section-head"><div><h2>Project Selesai</h2><p class="section-subtitle">Project yang sudah ditandai selesai, tetapi tetap bisa dibuka untuk report dan histori client.</p></div><strong>${completedProjects.length}</strong></div>${renderProjectAdminRows(completedProjects)}</section>
+    <section class="section-card project-admin-card"><div class="section-head premium-section-head"><div><h2>Proyek Aktif</h2><p class="section-subtitle">Project yang masih aktif berjalan dan membutuhkan monitoring harian.</p></div><strong>${activeProjects.length}</strong></div>${renderProjectAdminRows(activeProjects)}</section>
+    <section class="section-card project-admin-card"><div class="section-head premium-section-head"><div><h2>Proyek Selesai</h2><p class="section-subtitle">Project yang sudah ditandai selesai, tetapi tetap bisa dibuka untuk report dan histori client.</p></div><strong>${completedProjects.length}</strong></div>${renderProjectAdminRows(completedProjects)}</section>
     <section class="section-card project-admin-card"><div class="section-head premium-section-head"><div><h2>Project Arsip</h2><p class="section-subtitle">Project nonaktif yang disimpan untuk histori. Slot kosong bawaan sistem disembunyikan dari daftar ini.</p></div><strong>${archivedProjects.length}</strong></div>${renderProjectAdminRows(archivedProjects)}</section>
   </main>`;
 }
@@ -3460,15 +3460,15 @@ function renderHomePanel(){
   const completed = projects.filter(projectIsCompleted);
   const map = {
     all: {title:'Semua Project', rows:projects},
-    running: {title:'Project Berjalan', rows:running},
-    completed: {title:'Project Selesai', rows:completed}
+    running: {title:'Proyek Aktif', rows:running},
+    completed: {title:'Proyek Selesai', rows:completed}
   };
   const picked = map[state.homePanel] || map.all;
   return `<div class="modal-backdrop" onclick="closeHomePanel()"><section class="home-modal" onclick="event.stopPropagation()"><div class="home-modal-head"><div><span>Beranda</span><h3>${esc(picked.title)}</h3></div><button class="ghost-btn" onclick="closeHomePanel()">Tutup</button></div>${renderHomeProjectList(picked.rows)}</section></div>`;
 }
 function renderTodayScheduleCard(events){
   const items = events.slice(0,5);
-  return `<button class="home-stat-card schedule" onclick="setCommandPage('schedule')"><span>Schedule Hari Ini</span><strong>${events.length}</strong><small>${items.length ? items.map(event => `${timeRangeLabel(event)} · ${event.title}`).join(' • ') : 'Tidak ada agenda hari ini.'}</small></button>`;
+  return `<button class="home-stat-card schedule" onclick="setCommandPage('schedule')"><span>Jadwal Hari Ini</span><strong>${events.length}</strong><small>${items.length ? items.map(event => `${timeRangeLabel(event)} · ${event.title}`).join(' • ') : 'Tidak ada agenda hari ini.'}</small></button>`;
 }
 function renderHomeAgendaEvent(event){
   const mode = scheduleDeliveryModeLabel(event.deliveryMode);
@@ -3477,8 +3477,8 @@ function renderHomeAgendaEvent(event){
 }
 function renderProjectAgendaToday(events){
   const grouped = commandProjects().map(project => ({project, events: events.filter(event => event.projectId === project.id)})).filter(item => item.events.length);
-  if(!grouped.length) return `<section class="section-card command-card"><div class="section-head premium-section-head"><div><h2>Project Agenda</h2><p class="section-subtitle">Tidak ada project dengan agenda pada tanggal hari ini.</p></div></div><div class="empty-schedule">Agenda hari ini kosong.</div></section>`;
-  return `<section class="section-card command-card"><div class="section-head premium-section-head"><div><h2>Project Agenda</h2><p class="section-subtitle">Klik project untuk membuka daftar agenda, lalu klik agenda untuk melihat detail di kalender.</p></div><button class="ghost-btn" onclick="setCommandPage('schedule')">Buka Schedule</button></div><div class="agenda-accordion">${grouped.map(({project, events}) => `<div class="agenda-project"><button onclick="toggleHomeAgendaProject('${esc(project.id)}')"><span><strong>${esc(project.code)}</strong><small>${esc(project.name)}</small></span><em>${events.length} agenda</em></button>${state.homeAgendaOpenProjectId === project.id ? `<div class="agenda-detail">${events.map(renderHomeAgendaEvent).join('')}</div>` : ''}</div>`).join('')}</div></section>`;
+  if(!grouped.length) return `<section class="section-card command-card"><div class="section-head premium-section-head"><div><h2>Agenda Proyek</h2><p class="section-subtitle">Tidak ada project dengan agenda pada tanggal hari ini.</p></div></div><div class="empty-schedule">Agenda hari ini kosong.</div></section>`;
+  return `<section class="section-card command-card"><div class="section-head premium-section-head"><div><h2>Agenda Proyek</h2><p class="section-subtitle">Klik project untuk membuka daftar agenda, lalu klik agenda untuk melihat detail di kalender.</p></div><button class="ghost-btn" onclick="setCommandPage('schedule')">Buka Schedule</button></div><div class="agenda-accordion">${grouped.map(({project, events}) => `<div class="agenda-project"><button onclick="toggleHomeAgendaProject('${esc(project.id)}')"><span><strong>${esc(project.code)}</strong><small>${esc(project.name)}</small></span><em>${events.length} agenda</em></button>${state.homeAgendaOpenProjectId === project.id ? `<div class="agenda-detail">${events.map(renderHomeAgendaEvent).join('')}</div>` : ''}</div>`).join('')}</div></section>`;
 }
 
 function notificationItems(){
@@ -3618,10 +3618,10 @@ function activityActionLabel(action){
     delete_schedule: 'Agenda dihapus',
     export_executive_summary: 'Ringkasan Eksekutif diunduh',
     export_report_pack: 'Paket Laporan Lengkap diunduh',
-    export_timeline_pdf: 'Timeline PDF diunduh',
+    export_timeline_pdf: 'Unduh Linimasa Proyek diunduh',
     export_project_backup: 'Backup project diunduh',
     export_all_projects_backup: 'Backup semua project diunduh',
-    export_task_tracker_csv: 'Task Tracker CSV diunduh',
+    export_task_tracker_csv: 'Pemantauan Tugas CSV diunduh',
     export_schedule_csv: 'Schedule CSV diunduh',
     export_activity_log_csv: 'Activity Log CSV diunduh'
   };
@@ -3633,7 +3633,7 @@ function activityModuleLabel(tableName){
     project_access: 'Client Access',
     project_branding: 'Branding',
     project_schedule_events: 'Schedule',
-    tasks: 'Task Tracker',
+    tasks: 'Pemantauan Tugas',
     timeline_items: 'Timeline',
     reports: 'Report',
     backup: 'Backup & Export'
@@ -3865,8 +3865,8 @@ async function exportTaskTrackerCsv(projectId){
   ];
   const csv = rowsToCsv(projectTaskRows(project), headers);
   downloadTextFile(`PPD_Task_Tracker_${safeFilename(project.code || project.id)}_${exportIsoStamp()}.csv`, csv, 'text/csv;charset=utf-8');
-  await logActivity('export_task_tracker_csv', project, 'backup', project.supabaseId || null, { export_type: 'Task Tracker CSV' });
-  setBackupExportMessage('success', `Task Tracker ${project.code} berhasil diexport.`);
+  await logActivity('export_task_tracker_csv', project, 'backup', project.supabaseId || null, { export_type: 'Pemantauan Tugas CSV' });
+  setBackupExportMessage('success', `Pemantauan Tugas ${project.code} berhasil diexport.`);
 }
 function scheduleExportRows(projectFilter = 'all'){
   return scheduleEventsFlat()
@@ -3962,7 +3962,7 @@ function renderDataBackupPage(){
     <section class="backup-section"><div class="backup-section-heading"><span>Ringkasan Data</span><h3>Ringkasan Data</h3></div><div class="backup-stats-grid"><div><span>Project</span><strong>${projects.length}</strong><small>Tersedia untuk backup</small></div><div><span>Task</span><strong>${taskCount}</strong><small>Project terpilih</small></div><div><span>Dokumen</span><strong>${docCount}</strong><small>List dan output</small></div><div><span>Schedule</span><strong>${scheduleCount}</strong><small>Agenda project</small></div></div></section>
     <section class="backup-section"><div class="backup-section-heading"><span>Pilihan Export</span><h3>Pilih Jenis File</h3></div><div class="backup-action-grid">
       <article class="backup-action-card primary"><span>Snapshot Project</span><h3>Backup Project Terpilih</h3><p>Snapshot lengkap berisi profil project, metrik, branding, timeline, task, dokumen, update, dan schedule.</p><button class="primary-btn" onclick="exportProjectBackup('${esc(selected?.id || '')}')">Unduh JSON</button></article>
-      <article class="backup-action-card"><span>CSV Export</span><h3>Task Tracker</h3><p>Unduh data realisasi task untuk analisis, review, atau dokumentasi internal.</p><button class="ghost-btn" onclick="exportTaskTrackerCsv('${esc(selected?.id || '')}')">Unduh CSV</button></article>
+      <article class="backup-action-card"><span>CSV Export</span><h3>Pemantauan Tugas</h3><p>Unduh data realisasi task untuk analisis, review, atau dokumentasi internal.</p><button class="ghost-btn" onclick="exportTaskTrackerCsv('${esc(selected?.id || '')}')">Unduh CSV</button></article>
       <article class="backup-action-card"><span>CSV Export</span><h3>Schedule</h3><p>Unduh agenda untuk project terpilih atau seluruh project yang tersedia.</p><div class="split-actions"><button class="ghost-btn" onclick="exportScheduleCsv('${esc(selected?.id || '')}')">Project Ini</button><button class="ghost-btn" onclick="exportScheduleCsv('all')">Semua</button></div></article>
       <article class="backup-action-card"><span>Audit</span><h3>Activity Log</h3><p>Unduh 500 aktivitas terbaru untuk kebutuhan audit internal Project Manager.</p><button class="ghost-btn" onclick="exportActivityLogCsv()" ${state.backupExportBusy ? 'disabled' : ''}>${state.backupExportBusy ? 'Menyiapkan...' : 'Unduh CSV'}</button></article>
     </div></section>
@@ -4078,7 +4078,7 @@ function renderPmHomePage(){
   const completed = projects.filter(projectIsCompleted);
   const todayEvents = scheduleEventsFlat().filter(event => event.date === todayISO()).sort((a,b) => `${a.startTime || ''}`.localeCompare(`${b.startTime || ''}`));
   const avgProgress = projects.length ? Math.round(projects.reduce((sum, project) => sum + projectProgressValue(project), 0) / projects.length) : 0;
-  return `<main class="main command-main"><div class="topbar premium-topbar compact-topbar"><div class="title"><h1>Beranda</h1><p>Pusat kendali harian untuk Project Manager dan Admin.</p></div><div class="actions"><button class="ghost-btn" onclick="setCommandPage('notifications')">Notifikasi</button><button class="ghost-btn" onclick="setCommandPage('project-management')">Kelola <em>Project</em></button><button class="primary-btn" onclick="setCommandPage('schedule')">Buka Schedule</button></div></div><section class="home-stats-grid"><button class="home-stat-card" onclick="openHomePanel('all')"><span>Total Project</span><strong>${projects.length}</strong><small>Semua project aktif yang siap dipantau.</small></button><button class="home-stat-card running" onclick="openHomePanel('running')"><span>Total Project Berjalan</span><strong>${running.length}</strong><small>Klik untuk melihat progress setiap project.</small></button><button class="home-stat-card completed" onclick="openHomePanel('completed')"><span>Total Project Selesai</span><strong>${completed.length}</strong><small>Project dengan progress 100%.</small></button>${renderTodayScheduleCard(todayEvents)}${renderNotificationStatCard()}<div class="home-stat-card average"><span>Rata-rata Progress</span><strong>${avgProgress}%</strong><small>Rata-rata dari seluruh project aktif.</small></div></section>${renderProjectAgendaToday(todayEvents)}${renderHomePanel()}</main>`;
+  return `<main class="main command-main"><div class="topbar premium-topbar compact-topbar"><div class="title"><h1>Beranda</h1><p>Pusat kendali harian untuk Project Manager dan Admin.</p></div><div class="actions"><button class="ghost-btn" onclick="setCommandPage('notifications')">Notifikasi</button><button class="ghost-btn" onclick="setCommandPage('project-management')">Kelola <em>Project</em></button><button class="primary-btn" onclick="setCommandPage('schedule')">Buka Schedule</button></div></div><section class="home-stats-grid"><button class="home-stat-card" onclick="openHomePanel('all')"><span>Total Proyek</span><strong>${projects.length}</strong><small>Semua project aktif yang siap dipantau.</small></button><button class="home-stat-card running" onclick="openHomePanel('running')"><span>Total Proyek Berjalan</span><strong>${running.length}</strong><small>Klik untuk melihat progress setiap project.</small></button><button class="home-stat-card completed" onclick="openHomePanel('completed')"><span>Total Proyek Selesai</span><strong>${completed.length}</strong><small>Project dengan progress 100%.</small></button>${renderTodayScheduleCard(todayEvents)}${renderNotificationStatCard()}<div class="home-stat-card average"><span>Rata-rata Progress</span><strong>${avgProgress}%</strong><small>Rata-rata dari seluruh project aktif.</small></div></section>${renderProjectAgendaToday(todayEvents)}${renderHomePanel()}</main>`;
 }
 function renderScheduleEventChip(event, compact = false){
   const title = `${timeRangeLabel(event)} · ${event.title}`;
@@ -4597,7 +4597,7 @@ function renderTaskTracker(project){
   const rows = taskRows(project);
   const owners = getMemberNames(project).filter(Boolean);
   return `<section class="section-card" data-tour="tasks">
-    <div class="section-head premium-section-head"><div><h2><em>Task Tracker</em></h2></div>
+    <div class="section-head premium-section-head"><div><h2><em>Pemantauan Tugas</em></h2></div>
       <div class="table-tools premium-tools">
         <input placeholder="Cari task..." value="${esc(state.tableSearch)}" oninput="state.tableSearch=this.value;render()">
         <select onchange="setTaskStatusFilter(this.value)"><option value="all">All Status</option><option value="not started" ${state.taskFilterStatus === 'not started' ? 'selected' : ''}>Not Started</option><option value="progress" ${state.taskFilterStatus === 'progress' ? 'selected' : ''}>In Progress</option><option value="completed" ${state.taskFilterStatus === 'completed' ? 'selected' : ''}>Completed</option><option value="hold" ${state.taskFilterStatus === 'hold' ? 'selected' : ''}>Hold</option><option value="risk" ${state.taskFilterStatus === 'risk' ? 'selected' : ''}>Risiko Aktif</option></select>
@@ -4639,7 +4639,7 @@ function setTimelineZoom(value){ state.timelineZoom = value; render(); }
 function renderTimelineProject(project){
   ensurePremiumState();
   const model = buildGanttModel(project);
-  if(!model) return renderEmpty('Timeline belum siap.', 'Isi data Timeline Project agar jadwal yang disepakati bisa ditampilkan.');
+  if(!model) return renderEmpty('Timeline belum siap.', 'Isi data Linimasa Proyek agar jadwal yang disepakati bisa ditampilkan.');
   const dayWidth = state.timelineZoom === 'year' ? 8 : (state.timelineZoom === 'quarter' ? 16 : 34);
   const headerWidth = model.totalDays * dayWidth;
   const filter = state.timelineFilter || 'all';
@@ -4660,7 +4660,7 @@ function renderTimelineProject(project){
   const todayIndex = today >= startOfDay(model.start) && today <= startOfDay(model.end) ? Math.max(0, daysBetween(model.start, today)) : -1;
   const ganttTaskColumnWidth = 300;
   const todayLeft = todayIndex >= 0 ? ganttTaskColumnWidth + (todayIndex * dayWidth) + (dayWidth / 2) : -1;
-  return `<section class="section-card" data-tour="timeline"><div class="section-head timeline-head premium-section-head"><div><h2><em>Timeline Project</em></h2>${legend ? `<div class="gantt-legend">${legend}</div>` : ''}</div><div class="table-tools premium-tools timeline-tools"><button class="ghost-btn timeline-export-btn" onclick="exportTimelinePdf()">Unduh <em>Timeline</em> PDF</button><input placeholder="Cari timeline..." value="${esc(state.tableSearch)}" oninput="state.tableSearch=this.value;render()"><select onchange="setTimelineFilter(this.value)"><option value="all">Semua Phase</option><option value="assessment" ${filter === 'assessment' ? 'selected' : ''}>Assessment</option><option value="reporting" ${filter === 'reporting' ? 'selected' : ''}>Reporting</option><option value="hold" ${filter === 'hold' ? 'selected' : ''}>Hold</option></select><div class="segmented"><button class="${state.timelineZoom === 'month' ? 'active' : ''}" onclick="setTimelineZoom('month')">Bulan</button><button class="${state.timelineZoom === 'quarter' ? 'active' : ''}" onclick="setTimelineZoom('quarter')">Kuartal</button><button class="${state.timelineZoom === 'year' ? 'active' : ''}" onclick="setTimelineZoom('year')">Tahun</button></div></div></div><div class="gantt-wrap zoom-${state.timelineZoom}"><div class="gantt-board"><div class="gantt-left sticky-head gantt-task-head"><span class="gantt-row-no head">No</span><em>Task</em></div><div class="gantt-right sticky-head" style="width:${headerWidth}px"><div class="gantt-months">${model.months.map(m => `<div class="month-block" style="width:${m.span * dayWidth}px">${esc(m.label)}</div>`).join('')}</div><div class="gantt-days">${model.days.map(d => `<div class="day-block" style="width:${dayWidth}px">${d.getDate()}</div>`).join('')}</div></div>${todayIndex >= 0 ? `<div class="gantt-today-rail" style="left:${todayLeft}px"><em>Today</em></div>` : ''}${filteredTasks.map((task, rowNo) => `<div class="gantt-left row-label clickable-row gantt-task-label" onclick="openDrawer('timeline', ${jsValue(task.task)})"><span class="gantt-row-no">${rowNo + 1}</span><span>${esc(task.task)}</span></div><div class="gantt-right gantt-row-canvas" style="width:${headerWidth}px"><div class="gantt-gridline">${model.days.map(() => `<span style="width:${dayWidth}px"></span>`).join('')}</div>${task.phases.map(phase => { const start = phase._start < model.start ? model.start : phase._start; const end = phase._end > model.end ? model.end : phase._end; const startIndex = Math.max(0, daysBetween(model.start, start)); const endIndex = Math.max(startIndex, daysBetween(model.start, end)); const barLeft = startIndex * dayWidth; const barWidth = Math.max(dayWidth, ((endIndex - startIndex) + 1) * dayWidth); const typeClass = normalize(phase.type || 'assessment').replace(/[^a-z0-9-]+/g, '-'); const title = `${phase.label || 'Timeline'}: ${formatDate(phase.startDate)} - ${formatDate(phase.endDate)}`; return `<button class="gantt-bar-shell ${typeClass}" title="${esc(title)}" onclick="openDrawer('timeline', ${jsValue(task.task)})" style="left:${barLeft}px;width:${barWidth}px"></button>`; }).join('')}</div>`).join('')}</div></div></section>`;
+  return `<section class="section-card" data-tour="timeline"><div class="section-head timeline-head premium-section-head"><div><h2><em>Linimasa Proyek</em></h2>${legend ? `<div class="gantt-legend">${legend}</div>` : ''}</div><div class="table-tools premium-tools timeline-tools"><button class="ghost-btn timeline-export-btn" onclick="exportTimelinePdf()">Unduh <em>Timeline</em> PDF</button><input placeholder="Cari timeline..." value="${esc(state.tableSearch)}" oninput="state.tableSearch=this.value;render()"><select onchange="setTimelineFilter(this.value)"><option value="all">Semua Phase</option><option value="assessment" ${filter === 'assessment' ? 'selected' : ''}>Assessment</option><option value="reporting" ${filter === 'reporting' ? 'selected' : ''}>Reporting</option><option value="hold" ${filter === 'hold' ? 'selected' : ''}>Hold</option></select><div class="segmented"><button class="${state.timelineZoom === 'month' ? 'active' : ''}" onclick="setTimelineZoom('month')">Bulan</button><button class="${state.timelineZoom === 'quarter' ? 'active' : ''}" onclick="setTimelineZoom('quarter')">Kuartal</button><button class="${state.timelineZoom === 'year' ? 'active' : ''}" onclick="setTimelineZoom('year')">Tahun</button></div></div></div><div class="gantt-wrap zoom-${state.timelineZoom}"><div class="gantt-board"><div class="gantt-left sticky-head gantt-task-head"><span class="gantt-row-no head">No</span><em>Task</em></div><div class="gantt-right sticky-head" style="width:${headerWidth}px"><div class="gantt-months">${model.months.map(m => `<div class="month-block" style="width:${m.span * dayWidth}px">${esc(m.label)}</div>`).join('')}</div><div class="gantt-days">${model.days.map(d => `<div class="day-block" style="width:${dayWidth}px">${d.getDate()}</div>`).join('')}</div></div>${todayIndex >= 0 ? `<div class="gantt-today-rail" style="left:${todayLeft}px"><em>Today</em></div>` : ''}${filteredTasks.map((task, rowNo) => `<div class="gantt-left row-label clickable-row gantt-task-label" onclick="openDrawer('timeline', ${jsValue(task.task)})"><span class="gantt-row-no">${rowNo + 1}</span><span>${esc(task.task)}</span></div><div class="gantt-right gantt-row-canvas" style="width:${headerWidth}px"><div class="gantt-gridline">${model.days.map(() => `<span style="width:${dayWidth}px"></span>`).join('')}</div>${task.phases.map(phase => { const start = phase._start < model.start ? model.start : phase._start; const end = phase._end > model.end ? model.end : phase._end; const startIndex = Math.max(0, daysBetween(model.start, start)); const endIndex = Math.max(startIndex, daysBetween(model.start, end)); const barLeft = startIndex * dayWidth; const barWidth = Math.max(dayWidth, ((endIndex - startIndex) + 1) * dayWidth); const typeClass = normalize(phase.type || 'assessment').replace(/[^a-z0-9-]+/g, '-'); const title = `${phase.label || 'Timeline'}: ${formatDate(phase.startDate)} - ${formatDate(phase.endDate)}`; return `<button class="gantt-bar-shell ${typeClass}" title="${esc(title)}" onclick="openDrawer('timeline', ${jsValue(task.task)})" style="left:${barLeft}px;width:${barWidth}px"></button>`; }).join('')}</div>`).join('')}</div></div></section>`;
 }
 function setMeetingFilter(value){ state.meetingFilter = value; render(); }
 function meetingRows(project){
@@ -4692,7 +4692,7 @@ function reportExportCopy(lang = getReportExportLanguage()){
     executiveHint: isEn ? 'Concise management snapshot.' : 'Ringkasan singkat untuk manajemen.',
     fullTitle: isEn ? 'Full Report Pack' : 'Paket Laporan Lengkap',
     fullHint: isEn ? 'Complete project documentation pack.' : 'Dokumentasi progress project lengkap.',
-    timelineTitle: isEn ? 'Project Timeline' : 'Timeline Project',
+    timelineTitle: isEn ? 'Project Timeline' : 'Linimasa Proyek',
     timelineHint: isEn ? 'Schedule and milestone overview.' : 'Jadwal dan milestone project.',
     exportTag: isEn ? 'Download' : 'Unduh'
   };
@@ -4734,7 +4734,7 @@ function renderDrawerContent(project){
   if(type === 'task'){
     const item = project.tasks?.[Number(ref)]; if(!item) return '<p>Task tidak ditemukan.</p>';
     const schedule = getTaskScheduleState(project, item);
-    return `<h3>${esc(item.task || 'Untitled Task')}</h3><div class="drawer-grid"><span>Status</span><strong><span class="status ${statusClass(item.status)}">${esc(item.status || 'Not started')}</span></strong><span>Owner</span><strong>${esc(item.assignedTo || '-')}</strong><span>Start Aktual</span><strong><span class="date-pill ${compareDateClass(item.startDate, project, 'start', item.task)}">${formatDate(item.startDate)}</span></strong><span>End Aktual</span><strong><span class="date-pill ${compareDateClass(item.endDate, project, 'end', item.task)}">${formatDate(item.endDate)}</span></strong><span>Timeline</span><strong>${schedule.timelineRef ? `${formatDate(schedule.timelineRef.startDate)} → ${formatDate(schedule.timelineRef.endDate)}` : '-'}</strong><span>Progress</span><strong>${renderProgressBar(item.progress, true)}</strong></div>${schedule.reasons.length ? `<div class="drawer-note"><span>Schedule Insight</span><p>${esc(schedule.primaryReason || schedule.reasons.join(' • '))}</p></div>` : ''}<div class="drawer-note"><span>PM Notes / Reason</span><p>${esc(item.notes || (schedule.isAtRisk ? 'Belum ada catatan penyebab. PM dapat mengisi Notes di Task Tracker.' : '-'))}</p></div>`;
+    return `<h3>${esc(item.task || 'Untitled Task')}</h3><div class="drawer-grid"><span>Status</span><strong><span class="status ${statusClass(item.status)}">${esc(item.status || 'Not started')}</span></strong><span>Owner</span><strong>${esc(item.assignedTo || '-')}</strong><span>Start Aktual</span><strong><span class="date-pill ${compareDateClass(item.startDate, project, 'start', item.task)}">${formatDate(item.startDate)}</span></strong><span>End Aktual</span><strong><span class="date-pill ${compareDateClass(item.endDate, project, 'end', item.task)}">${formatDate(item.endDate)}</span></strong><span>Timeline</span><strong>${schedule.timelineRef ? `${formatDate(schedule.timelineRef.startDate)} → ${formatDate(schedule.timelineRef.endDate)}` : '-'}</strong><span>Progress</span><strong>${renderProgressBar(item.progress, true)}</strong></div>${schedule.reasons.length ? `<div class="drawer-note"><span>Schedule Insight</span><p>${esc(schedule.primaryReason || schedule.reasons.join(' • '))}</p></div>` : ''}<div class="drawer-note"><span>PM Notes / Reason</span><p>${esc(item.notes || (schedule.isAtRisk ? 'Belum ada catatan penyebab. PM dapat mengisi Notes di Pemantauan Tugas.' : '-'))}</p></div>`;
   }
   if(type === 'document' || type === 'output'){
     const source = type === 'output' ? project.documentOutputs : project.documents;
@@ -4770,7 +4770,7 @@ function renderDrawerContent(project){
     if(ref === 'risk'){
       const data = getOverdueTasks(project);
       const closedLate = getScheduleVarianceTasks(project);
-      const activeList = data.length ? data.map(({task,schedule}) => `<div class="timeline-detail-row"><span class="legend-item"><i class="hold"></i>${esc(task.task || '-')}</span><strong>${esc(task.status || 'Not started')}</strong></div><div class="drawer-note compact"><span>Schedule Trigger</span><p>${esc(schedule.primaryReason || schedule.reasons.join(' • '))}</p></div><div class="drawer-note compact"><span>PM Notes / Reason</span><p>${esc(task.notes || 'Belum ada catatan penyebab. PM dapat mengisi kolom Notes / Reason / Next Action di Task Tracker.')}</p></div>`).join('') : '<p>Tidak ada active risk.</p>';
+      const activeList = data.length ? data.map(({task,schedule}) => `<div class="timeline-detail-row"><span class="legend-item"><i class="hold"></i>${esc(task.task || '-')}</span><strong>${esc(task.status || 'Not started')}</strong></div><div class="drawer-note compact"><span>Schedule Trigger</span><p>${esc(schedule.primaryReason || schedule.reasons.join(' • '))}</p></div><div class="drawer-note compact"><span>PM Notes / Reason</span><p>${esc(task.notes || 'Belum ada catatan penyebab. PM dapat mengisi kolom Notes / Reason / Next Action di Pemantauan Tugas.')}</p></div>`).join('') : '<p>Tidak ada active risk.</p>';
       const closedList = closedLate.length ? `<div class="drawer-note"><span>Closed Late / Schedule Variance</span>${closedLate.slice(0,6).map(({task,schedule}) => `<p>${esc(task.task || '-')} — ${esc(schedule.primaryReason || schedule.reasons[0] || 'Melewati timeline')}</p>`).join('')}</div>` : '';
       return `<h3>Risiko Aktif</h3>${activeList}${closedList}`;
     }
@@ -4998,7 +4998,7 @@ async function exportTimelinePdf(){
     }
     const payload = buildClientReportPayload(project);
     await window.PPDReportExporter.generateTimeline(payload);
-    await logActivity('export_timeline_pdf', project, 'reports', project.supabaseId, { report_type: 'Timeline PDF', language: getReportExportLanguage() });
+    await logActivity('export_timeline_pdf', project, 'reports', project.supabaseId, { report_type: 'Unduh Linimasa Proyek', language: getReportExportLanguage() });
     showExportStatus('PDF Timeline berhasil dibuat. Periksa folder Downloads jika file belum terlihat.', 'success');
   }catch(err){
     console.error('[Timeline Export]', err);
@@ -5020,7 +5020,7 @@ async function exportClientReport(){
     }
     const payload = buildClientReportPayload(project);
     await window.PPDReportExporter.generate(payload);
-    await logActivity('export_executive_summary', project, 'reports', project.supabaseId, { report_type: 'Executive Summary PDF', language: getReportExportLanguage() });
+    await logActivity('export_executive_summary', project, 'reports', project.supabaseId, { report_type: 'Unduh Ringkasan Eksekutif', language: getReportExportLanguage() });
     showExportStatus('Ringkasan Eksekutif berhasil dibuat. Periksa folder Downloads jika file belum terlihat.', 'success');
   }catch(err){
     console.error('[Executive Summary Export]', err);
@@ -5054,7 +5054,7 @@ async function exportCommercialReportPack(){
 const TOUR_STEPS = [
   {title:'Header Eksekutif', body:'Ringkasan premium untuk client: health, progress, current phase, milestone, PIC, dan update terakhir.'},
   {title:'Kartu Insight Klien', body:'Kartu ini menyorot pending dari client, keputusan yang dibutuhkan, agenda terdekat, risiko aktif, dan item selesai terbaru.'},
-  {title:'Task Tracker Interaktif', body:'Gunakan pencarian, filter status/owner, tampilan tabel, dan kanban. Klik baris untuk membuka detail.'},
+  {title:'Pemantauan Tugas Interaktif', body:'Gunakan pencarian, filter status/owner, tampilan tabel, dan kanban. Klik baris untuk membuka detail.'},
   {title:'Timeline Premium', body:'Timeline mendukung filter fase, zoom bulan/kuartal/tahun, marker hari ini, hover detail, dan panel detail.'},
   {title:'Pencarian Global', body:'Tekan Ctrl/⌘ + K untuk mencari lintas project, task, dokumen, dan catatan meeting.'}
 ];
