@@ -1,0 +1,165 @@
+/*
+  Professional Project Dashboard — Rev04 Final Portfolio Polish
+  Scope: presentation-grade visual refinement only.
+  This stylesheet is intentionally non-invasive and should be loaded after styles.ppd-tone.css.
+*/
+
+:root {
+  --ppd-portfolio-shadow-soft: 0 18px 45px rgba(47, 58, 53, 0.08);
+  --ppd-portfolio-shadow-card: 0 12px 28px rgba(47, 58, 53, 0.07);
+  --ppd-portfolio-shadow-subtle: 0 8px 18px rgba(47, 58, 53, 0.05);
+  --ppd-portfolio-radius-lg: 22px;
+  --ppd-portfolio-radius-md: 16px;
+  --ppd-portfolio-radius-sm: 12px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Presentation-ready card depth */
+.section-card,
+.card,
+.dashboard-card,
+.stat-card,
+.metric-card,
+.project-card,
+.schedule-card,
+.timeline-card,
+.report-card,
+.modal,
+.modal-content {
+  box-shadow: var(--ppd-portfolio-shadow-card);
+}
+
+.section-card,
+.dashboard-card,
+.project-card,
+.schedule-card,
+.timeline-card,
+.report-card {
+  border-radius: var(--ppd-portfolio-radius-lg);
+}
+
+/* Better focus treatment for live demo navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.tab:focus-visible,
+.chip:focus-visible {
+  outline: 3px solid rgba(169, 119, 43, 0.28);
+  outline-offset: 3px;
+}
+
+/* Refined hover behavior */
+button,
+.tab,
+.chip,
+.project-card,
+.stat-card,
+.schedule-item,
+.timeline-item {
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.project-card:hover,
+.stat-card:hover,
+.schedule-item:hover,
+.timeline-item:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--ppd-portfolio-shadow-soft);
+}
+
+/* Screenshot-friendly spacing */
+.section-head,
+.section-header,
+.card-header,
+.panel-header {
+  gap: 12px;
+}
+
+.section-head h1,
+.section-head h2,
+.section-header h1,
+.section-header h2,
+.card-header h1,
+.card-header h2,
+.panel-header h1,
+.panel-header h2 {
+  letter-spacing: -0.02em;
+}
+
+/* Keep PDF/export actions visually premium */
+button[onclick*="PDF"],
+button[onclick*="Report"],
+button[onclick*="export"],
+button[onclick*="download"],
+.pdf-action,
+.report-action {
+  border-radius: 999px;
+}
+
+/* Schedule polish without changing event logic */
+.schedule-chip,
+.schedule-type,
+.event-chip,
+.event-type,
+.badge,
+.status-badge {
+  letter-spacing: 0.01em;
+}
+
+/* Make tables easier to capture in portfolio screenshots */
+table,
+.modern-table,
+.excel {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-wrap,
+.gantt-wrap {
+  box-shadow: var(--ppd-portfolio-shadow-subtle);
+  border-radius: var(--ppd-portfolio-radius-md);
+}
+
+/* Mobile portfolio polish */
+@media (max-width: 768px) {
+  .section-card,
+  .dashboard-card,
+  .project-card,
+  .schedule-card,
+  .timeline-card,
+  .report-card {
+    border-radius: 18px;
+  }
+
+  .section-head,
+  .section-header,
+  .card-header,
+  .panel-header {
+    gap: 10px;
+  }
+}
+
+/* Print/screenshot safety */
+@media print {
+  .section-card,
+  .card,
+  .dashboard-card,
+  .stat-card,
+  .metric-card,
+  .project-card,
+  .schedule-card,
+  .timeline-card,
+  .report-card {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "projectName": "Professional Project Dashboard",
+  "shortDescription": "A portfolio-ready project governance dashboard for role-based project visibility, schedule tracking, task monitoring, documentation, and structured report downloads.",
+  "businessValue": [
+    "Improves stakeholder visibility across active and completed projects.",
+    "Centralizes project status, schedule, task monitoring, and documentation.",
+    "Supports faster and more consistent management reporting.",
+    "Demonstrates role-based project access for PM, Admin, and Client users."
+  ],
+  "techStack": [
+    "HTML",
+    "CSS",
+    "Vanilla JavaScript",
+    "Supabase",
+    "PostgreSQL",
+    "Supabase Auth",
+    "Row Level Security",
+    "Supabase Edge Functions",
+    "Vercel",
+    "GitHub"
+  ],
+  "portfolioTags": [
+    "Project Management Dashboard",
+    "Project Governance",
+    "Supabase",
+    "Vercel",
+    "Role-Based Access",
+    "Report Export",
+    "Business Dashboard"
+  ]
+}
