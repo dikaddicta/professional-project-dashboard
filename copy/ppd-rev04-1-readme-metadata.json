@@ -1,0 +1,24 @@
+{
+  "revision": "Demo Rev04.1",
+  "title": "Portfolio Case Study & README Finalization",
+  "purpose": "Prepare the repository for public portfolio presentation with a professional README, case study materials, and repository positioning notes.",
+  "publicFacingDocuments": [
+    "README.md",
+    "docs/PORTFOLIO_CASE_STUDY_EN.md",
+    "docs/PORTFOLIO_CASE_STUDY_ID.md",
+    "docs/LINKEDIN_PORTFOLIO_CAPTION.md"
+  ],
+  "recommendedRepositoryDescription": "Portfolio-ready project governance dashboard for multi-role project monitoring, schedule management, task tracking, timeline visualization, and executive reporting.",
+  "recommendedTopics": [
+    "project-management",
+    "project-dashboard",
+    "project-governance",
+    "portfolio-project",
+    "supabase",
+    "vercel",
+    "vanilla-javascript",
+    "reporting-dashboard",
+    "role-based-access",
+    "dashboard-ui"
+  ]
+}
